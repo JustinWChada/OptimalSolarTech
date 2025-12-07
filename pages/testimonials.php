@@ -103,7 +103,7 @@
                   <i class="ri-star-fill star-icon"></i>
                 </div>
                 <p class="quote-text">
-                  "We use TechFlow for all our electrical and plumbing needs across
+                  "We use Optimal Solar Tech for all our electrical and plumbing needs across
                   multiple properties. They are reliable, professional, and always
                   deliver quality work on time."
                 </p>

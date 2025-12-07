@@ -6,7 +6,7 @@
                 <div class="b-logo">
                     <i class="ri-tools-line text-white text-lg"></i>
                 </div>
-                <span class="b-text">TechFlow Services</span>
+                <span class="b-text">Optimal Solar Tech</span>
             </div>
     </a>
     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

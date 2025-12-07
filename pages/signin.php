@@ -26,11 +26,11 @@
             <img class="mb-4" src="../images/lights.jpg" alt="" width="72" height="57"> 
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1> 
             <div class="form-floating"> 
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" auto-complete="off"> 
+                <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" auto-complete="off"> 
                 <label for="floatingInput">Email address</label> 
             </div> 
             <div class="form-floating"> 
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" auto-complete="off"> 
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" auto-complete="off"> 
                 <label for="floatingPassword">Password</label> 
             </div> 
             <div class="form-check text-start my-3"> 
@@ -54,6 +54,7 @@
       <script src="../js/nav_quote_modal.js" type="text/javascript"></script>
       <script src="../js/index_free_estimate.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
+      <script src="../js/signin.js" type="text/javascript"></script>
 
   </body>
 </html>
