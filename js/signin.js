@@ -10,7 +10,6 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             success: function(response) {
-                $("#rem_id").html(response.message)
                 if(response.success) {
                     alert(response.message);
                     // Store user data in session storage or cookies
@@ -26,20 +25,27 @@ $(document).ready(function() {
                             user_id: response.user.user_id,
                             csrf_token: $('meta[name="csrf_token"]').attr('content')
                         },
-                        success: function(data) {
-                            window.location.href = '../includes/session_create.php';
+                        success: function(session_response) {
+                            if(JSON.parse(session_response).success){
+                                //alert(JSON.parse(session_response).message + JSON.parse(session_response).session_id);: remove after testing
+                                sessionStorage.setItem('session_id', session_response.session_id);
+                                window.location.href = '../dashboard/dashboard.php?' + JSON.parse(session_response).session_id;
+                            } else {
+                                alert(JSON.parse(session_response).message);
+                            }
+                            
                         },
                         error: function(xhr, status, error) {
                             alert('Session creation failed: ' + error);
                         }
                     });
+
                 } else {
                     alert(response.message);
                 }
             },
             error: function(xhr, status, error) {
                 alert('An error occurred: ' + error);
-                $("#rem_id").html(error)
             }
         });
     });
