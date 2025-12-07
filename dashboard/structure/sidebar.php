@@ -7,12 +7,13 @@
 
         <nav class="sidebar-menu">
             <ul>
-                <li><a href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="dashboard.php"><i class="bi bi-speedometer"></i> Dashboard</a></li>
                 
                 <!-- Projects Section -->
                 <li>
-                    <a data-bs-toggle="collapse" href="#collapseProjects" role="button" aria-expanded="false" aria-controls="collapseProjects">
-                        <i class="fas fa-project-diagram"></i> Projects <i class="fas fa-chevron-down"></i>
+                    <a class="position-relative" data-bs-toggle="collapse" href="#collapseProjects" role="button" aria-expanded="false" aria-controls="collapseProjects">
+                        <i class="bi bi-briefcase"></i> Projects
+                        <i class="bi bi-chevron-down position-absolute end-0 top-50 translate-middle-y"></i>
                     </a>
                     <div class="collapse" id="collapseProjects">
                         <ul class="submenu">
@@ -23,31 +24,41 @@
                 </li>
 
                 <!-- Services Section -->
-                <li class="menu-dropdown">
-                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-tools"></i> Services <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu" id="dropdown">
-                        <li><a href="add_service.php">Add Service</a></li>
-                        <li><a href="available_services.php">Available Services</a></li>
-                        <li><a href="edit_services.php">Edit Services</a></li>
-                    </ul>
+                <li>
+                    <a class="position-relative"  data-bs-toggle="collapse" href="#collapseServices" role="button" aria-expanded="false" aria-controls="collapseServices">
+                        <i class="bi bi-tools"></i> Services
+                        <i class="bi bi-chevron-down position-absolute end-0 top-50 translate-middle-y"></i>
+                    </a>
+                    <div class="collapse" id="collapseServices">
+                        <ul class="submenu">
+                            <li><a href="add_project.php">Add Service</a></li>
+                            <li><a href="available_Services.php">Available Services</a></li>
+                            <li><a href="available_Services.php">Edit Services</a></li>
+                        </ul>
+                    </div>
                 </li>
 
                 <!-- FAQs Section -->
-                <li class="menu-dropdown">
-                    <a href="#"><i class="fas fa-question-circle"></i> FAQs <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="add_faq.php">Add FAQ</a></li>
-                        <li><a href="available_faqs.php">Available FAQs</a></li>
-                    </ul>
+                <li>
+                    <a class="position-relative" data-bs-toggle="collapse" href="#collapseFAQs" role="button" aria-expanded="false" aria-controls="collapseFAQs">
+                        <i class="bi bi-question-circle"></i> FAQs
+                        <i class="bi bi-chevron-down position-absolute end-0 top-50 translate-middle-y"></i>
+                    </a>
+                    <div class="collapse" id="collapseFAQs">
+                        <ul class="submenu">
+                            <li><a href="add_project.php">Add FAQs</a></li>
+                            <li><a href="available_FAQs.php">Available FAQs</a></li>
+                        </ul>
+                    </div>
                 </li>
 
                 <!-- Testimonials Section -->
-                <li><a href="testimonials.php"><i class="fas fa-quote-right"></i> Testimonials</a></li>
+                <li><a href="testimonials.php"><i class="bi bi-chat-right-quote"></i> Testimonials</a></li>
 
                 <!-- Additional Relevant Sections -->
-                <li><a href="customers.php"><i class="fas fa-users"></i> Customers</a></li>
-                <li><a href="inquiries.php"><i class="fas fa-envelope"></i> Inquiries</a></li>
-                <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="customers.php"><i class="bi bi-person-lines-fill"></i> Customers</a></li>
+                <li><a href="inquiries.php"><i class="bi bi-envelope"></i> Inquiries</a></li>
+                <li><a href="settings.php"><i class="bi bi-gear"></i> Settings</a></li>
                 <li><a href="settings.php"><button class="btn btn-outline-danger" id="emergencyMessages">Emergencies (1)</button></a></li>
             </ul>
         </nav>

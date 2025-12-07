@@ -73,6 +73,8 @@
 }
 .sidebar-menu li {
   margin: 0;
+  display: block;
+  align-items: center;
 }
 .sidebar-menu a {
   display: flex;
@@ -132,6 +134,7 @@
   transition: 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
     opacity 0.18s ease;
   border-left: 2px solid transparent;
+  text-indent: 50px;
 }
 
 .submenu li a {
