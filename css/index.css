@@ -1,0 +1,24 @@
+/* CSS Variables for easy color management */
+:root {
+  --primary-color: #1fb8a1; /*#4058f5 Teal/Cyan color from the image: */
+  --text-color: #333333;
+  --link-color: #666666;
+  --white: #ffffff;
+  --header-height: 80px;
+  --teal-color: #1fb8a1; /* Primary brand color */
+  --dark-text: #333;
+  --light-text: #ffffff;
+  --gray-text: #cccccc;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --background-white: #fff;
+  --star-gold: #ffc107;
+  --medium-text: #555;
+
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --footer-dark-bg: #1e3a45;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f4f4f4; /* Just for contrast */
+}

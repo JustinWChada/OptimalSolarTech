@@ -1,0 +1,150 @@
+.bubble-card {
+  position: relative;
+  background-color: #f7f9fc; /* Very light blue/off-white background */
+  transition: all 0.3s ease;
+}
+
+/* Define the right-side pointer */
+.bubble-card.pointer-right::after {
+  content: "";
+  position: absolute;
+  top: 25px; /* Position down from the top edge */
+  right: -10px; /* Offset from the edge of the card */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #f7f9fc; /* Match card background */
+  border-right: 0;
+}
+
+/* Define the left-side pointer */
+.bubble-card.pointer-left::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #f7f9fc;
+  border-left: 0;
+}
+
+/*testimonials hero section*/
+.hero-section {
+  background-image: url("../images/lights.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 150px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dark overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.testimonial-container {
+  margin: auto;
+  padding: 8px;
+  margin-top: 10px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* --- Testimonial Card --- */
+.testimonial-card {
+  background-color: var(--background-white);
+  padding: 30px;
+  border-radius: 8px;
+  /* Soft shadow matching the image design */
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Star Rating */
+.star-rating {
+  margin-bottom: 15px;
+}
+
+.star-icon {
+  color: var(--star-gold);
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+/* Quote Text */
+.quote-text {
+  font-size: 16px;
+  color: var(--medium-text);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* client Info (Avatar and Name/Title) */
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  /* Small border for definition, though optional */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.client-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.client-title {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+@media screen and (max-width: 769px) {
+  .testimonial-hero {
+    height: 600px;
+  }
+}

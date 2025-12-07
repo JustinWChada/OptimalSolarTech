@@ -1,0 +1,141 @@
+/* Custom Keyframes for Animation */
+
+/* 1. Walk Cycle: Moves the character from off-screen left to off-screen right */
+@keyframes walk-cycle {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 150px));
+  } /* Move across full viewport width */
+}
+
+/* 2. Leg Swing: Creates the walking motion */
+@keyframes leg-swing {
+  0%,
+  100% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* 3. Arm Swing (Toolbox Arm): Opposite of leg swing for counter-motion */
+@keyframes arm-swing {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* 4. Head Bob: Slight vertical movement */
+@keyframes head-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* 5. Electricity Spark Flash: Intermittent glowing flashes */
+@keyframes spark-flash {
+  /* Randomly flash opacity to simulate intermittent energy/faults */
+  0%,
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90% {
+    opacity: 0;
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    opacity: 1;
+    transform: scale(1.5) rotate(5deg);
+    filter: drop-shadow(0 0 5px yellow) drop-shadow(0 0 10px orange);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Apply animations to elements */
+.electrician-character {
+  animation: walk-cycle 40s linear infinite;
+}
+
+.leg {
+  transform-origin: top center;
+  animation: leg-swing 0.8s ease-in-out infinite alternate;
+}
+
+/* Stagger the leg movements for a realistic walk */
+.leg-front {
+  animation-delay: 0.4s;
+}
+
+.arm-toolbox {
+  transform-origin: top center;
+  animation: arm-swing 0.8s ease-in-out infinite alternate;
+}
+
+.head-body {
+  animation: head-bob 0.8s ease-in-out infinite alternate;
+}
+
+/* Scene Elements */
+
+.utility-pole {
+  position: absolute;
+  bottom: 50px; /* Sits on the ground layer */
+  width: 20px;
+  height: 250px;
+  background-color: #5d4037; /* Brown pole/metal */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.ground-layer {
+  height: 50px;
+  background: linear-gradient(
+    to top,
+    #424242,
+    #616161
+  ); /* Asphalt/Pavement look */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 5px solid #333;
+  z-index: 15;
+}
+
+.spark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: yellow;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  animation: spark-flash 2s infinite step-end;
+  opacity: 0; /* Starts invisible */
+}

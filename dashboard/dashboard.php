@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Dashboard - Optimal Solar Tech</title>
+    <!-- Load Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Remix Icons (for ri-tools-line) and Bootstrap Icons (for bi-list) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- custom css -->
+    <link href="css/dashboard.css" type= "text/css" rel="stylesheet">
+    <link href="css/sidebar.css" type= "text/css" rel="stylesheet">
+    <link href="css/navbar.css" type= "text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <section class="container-fluid main">
+        <div class="row">
+            <div class="col-md-3">
+                <?php include 'structure/sidebar.php'; ?>
+            </div>
+            <div class="col-md-9">
+                <?php include 'structure/navbar.php'; ?>
+                <div class="content">
+                    <!-- Data will be shown here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/sidebar.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

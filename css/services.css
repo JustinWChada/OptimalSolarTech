@@ -1,0 +1,163 @@
+/* Services Section Styles */
+.services-section {
+  padding: 80px 0;
+}
+
+.services-section h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+.service-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 30px;
+  background-color: #fff;
+  animation: fadeInUp 1s ease-out;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.service-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust position as needed */
+  width: 0; /* Initially hidden */
+  height: 3px;
+  background-color: var(--primary-color); /* Gold accent color */
+  transition: width 0.5s ease;
+}
+
+.service-card:hover h3::after {
+  width: 100%; /*Slides in on hover */
+}
+
+.service-card-description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: left;
+}
+
+.small-desc {
+  background-color: var(--gray-text);
+}
+
+.card-link {
+  /* Styling to make it look like a text link */
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0c0c0c;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: #158b6f; /* Slightly darker green on hover */
+}
+
+/* Sectors Section Styles */
+.sectors-section {
+  padding: 80px 0;
+  background-color: #f0f0f0;
+}
+
+.sectors-section h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 50px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+.sector-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 30px;
+  background-color: #fff;
+  animation: fadeInUp 1s ease-out;
+}
+
+.sector-card:hover {
+  transform: translateY(-5px);
+}
+
+.sector-card i {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+.sector-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.sector-card p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

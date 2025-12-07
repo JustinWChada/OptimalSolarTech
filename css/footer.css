@@ -1,0 +1,173 @@
+/* --- Footer Section Styles --- */
+.footer-section {
+  background-color: var(--footer-dark-bg);
+  color: var(--light-text);
+  padding: 60px 20px 0 20px; /* 60px top padding, 0 bottom padding (handled by bar) */
+  font-family: "Inter", sans-serif;
+}
+
+.footer-section a {
+  text-decoration: none;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Main Content Grid (Branding, Services, Contact) --- */
+.footer-main-content {
+  display: grid;
+  /* Default: 1 column for mobile, then 3 columns for tablet/desktop */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+/* On larger screens (Desktop), use a fixed 3-column layout where the first column is wider */
+@media (min-width: 1024px) {
+  .footer-main-content {
+    grid-template-columns: 2fr 1fr 1.5fr; /* Wider branding column */
+    gap: 60px;
+  }
+}
+
+/* --- Branding Column (Column 1) --- */
+.logo-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.logo-wrapper {
+  background-color: var(--primary-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.logo-icon {
+  font-size: 18px;
+  color: var(--footer-dark-bg); /* Dark icon on light icon box */
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--light-text);
+}
+
+.company-description {
+  font-size: 14px;
+  line-height: 1.6;
+  /* Lighter text for contrast and readability */
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon-link {
+  color: var(--light-text);
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.social-icon-link:hover {
+  color: var(--primary-color);
+}
+
+/* --- Link Columns (Services/Contact) --- */
+.link-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--white);
+}
+
+/* --- Contact Column (Column 3) --- */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-icon {
+  font-size: 18px;
+  margin-right: 10px;
+  /* Use white icons for the contact details */
+  color: var(--primary-color);
+}
+
+.contact-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-address .contact-icon {
+  /* Aligns map pin icon to the top of the multi-line address text */
+  margin-top: 2px;
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows text to wrap on very small screens */
+}
+
+.copyright-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.builder-link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.builder-link:hover {
+  color: var(--white);
+}

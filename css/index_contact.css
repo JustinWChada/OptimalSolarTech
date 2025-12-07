@@ -1,0 +1,239 @@
+/* --- General Section Styling --- */
+.contact-section {
+  padding: 80px 20px;
+  background-color: #ffffff; /* White background for the whole section */
+  font-family: "Inter", sans-serif;
+}
+
+/* --- Header Styling --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: var(--dark-text);
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* --- Main Content Layout (Form and Info) --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to a single column on mobile */
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+    gap: 80px;
+  }
+}
+
+/* --- Contact Form Card (Left Column) --- */
+.form-card {
+  background-color: var(--light-text);
+  border-radius: 12px;
+  padding: 32px;
+  /* Subtle shadow to lift the card, matching the design aesthetic */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 24px;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Input Rows (Full Name/Email, Phone/Service) */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .input-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+}
+
+/* Text Inputs and Selects */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-text);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--dark-text);
+  transition: gray-text 0.2s, box-shadow 0.2s;
+  background-color: white; /* Ensure inputs are white even if card is gray */
+}
+
+.input-field:focus {
+  outline: none;
+  color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2); /* Teal focus ring */
+}
+
+/* Textarea Specifics */
+.textarea-field {
+  resize: vertical;
+}
+
+.char-count {
+  font-size: 12px;
+  color: var(--dark-text);
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Select Field Custom Styling */
+.select-wrapper {
+  position: relative;
+}
+
+.select-field {
+  /* Hides default browser arrow */
+  appearance: none;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.select-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-text);
+  font-size: 20px;
+  pointer-events: none; /* Allows clicks to pass through to the select element */
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color);
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Contact Information Section (Right Column) --- */
+.info-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 24px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Teal Icon Box */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-text {
+  color: white;
+  font-size: 20px;
+}
+
+.contact-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 4px;
+}
+
+.contact-detail {
+  font-size: 16px;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.contact-sub-detail {
+  font-size: 14px;
+  color: var(--dark-text);
+  margin-top: 4px;
+}
+
+/* Map Styling */
+.map-wrapper {
+  border-radius: 8px;
+  height: 300px; /* Fixed height for the map */
+  overflow: hidden;
+  /* Add border/shadow to map to match design */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}

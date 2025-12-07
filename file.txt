@@ -1,0 +1,4 @@
+OptimalSolarTech
+
+This file is a placeholder for notes, configuration, or documentation related to the OptimalSolarTech project.
+Replace or remove this content as needed.

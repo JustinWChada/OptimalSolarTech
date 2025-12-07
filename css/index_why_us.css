@@ -1,0 +1,186 @@
+.why-us-section {
+  padding: 80px 0; /* Adjust padding as needed for your site */
+  font-family: Arial, sans-serif; /* Use your site's main font */
+  background-color: var(--background-white);
+}
+
+.why-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex; /* Main layout is a flex row */
+  gap: 50px; /* Space between the two columns */
+  align-items: flex-start; /* Aligns the columns at the top */
+}
+
+/* --- Left Column: Content --- */
+.why-us-content {
+  flex: 1; /* Takes up available space */
+  max-width: 50%; /* Ensures the content doesn't get too wide on large screens */
+}
+
+.why-us-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin-bottom: 20px;
+}
+
+.why-us-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color-light);
+  margin-bottom: 40px;
+}
+
+/* Feature List (Checkmarks) */
+.why-us-features {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between the features */
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start; /* Align icon with the top of the text */
+  gap: 15px;
+}
+
+.feature-icon-box {
+  min-width: 25px; /* Fixed width for the icon circle */
+  height: 25px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px; /* Slight adjustment to align with text */
+}
+
+/* Icon style - Adjust if using an SVG or different icon library */
+.feature-icon-box i {
+  color: var(--background-white);
+  font-size: 14px;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color-dark);
+  margin: 0 0 5px 0;
+}
+
+.feature-description {
+  font-size: 15px;
+  color: var(--text-color-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Button */
+.why-us-button {
+  background-color: var(--primary-color);
+  color: var(--background-white);
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.why-us-button:hover {
+  background-color: #158b6f; /* Slightly darker green on hover */
+}
+
+/* --- Right Column: Image and Stats --- */
+.why-us-image-col {
+  flex: 1;
+  position: relative;
+  max-width: 50%;
+  align-items: center;
+}
+
+.why-us-team-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Optional: adds subtle rounded corners to the image */
+}
+
+/* Stats Box Overlay */
+.why-us-stats-box {
+  margin-top: 15px;
+  background-color: var(--background-white);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 90%; /* Adjust width of the stats box */
+  border-top: 4px solid var(--primary-color); /* Matches the image design's accent line */
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 0 10px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-color-light);
+  white-space: nowrap; /* Keeps the label on one line */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .why-us-container {
+    flex-direction: column; /* Stacks columns on smaller screens */
+    gap: 70px; /* More space when stacked */
+  }
+
+  .why-us-content,
+  .why-us-image-col {
+    max-width: 100%; /* Allows them to take full width */
+  }
+
+  .why-us-image-col {
+    margin-top: 50px; /* Space between text and image block */
+  }
+
+  /* Adjust the stats box for better stacking visibility */
+  .why-us-stats-box {
+    position: static; /* Removes absolute positioning */
+    transform: none;
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .why-us-title {
+    font-size: 32px;
+  }
+
+  .why-us-section {
+    padding: 50px 0;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

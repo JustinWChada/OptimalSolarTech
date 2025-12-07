@@ -1,0 +1,98 @@
+/* --- Variables and General Styles --- */
+.testimonials-section {
+  padding: 80px 20px;
+  background-color: var(--background-white);
+  font-family: "Inter", sans-serif;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Header Styling --- */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.header-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+}
+
+.header-subtitle {
+  font-size: 18px;
+  color: var(--medium-text);
+}
+
+/* --- Testimonial Grid (3-Column Layout) --- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* --- Testimonial Card --- */
+.testimonial-card {
+  background-color: var(--background-white);
+  padding: 30px;
+  border-radius: 8px;
+  /* Soft shadow matching the image design */
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Star Rating */
+.star-rating {
+  margin-bottom: 15px;
+}
+
+.star-icon {
+  color: var(--star-gold);
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+/* Quote Text */
+.quote-text {
+  font-size: 16px;
+  color: var(--medium-text);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* client Info (Avatar and Name/Title) */
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  /* Small border for definition, though optional */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.client-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.client-title {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+}

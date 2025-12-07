@@ -1,0 +1,206 @@
+/* Custom Styles */
+.about-section {
+  padding: 80px 0;
+}
+
+.about-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out; /* Animate from bottom */
+}
+
+.about-content {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8); /* Translucent white */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out; /* Fade in animation */
+}
+
+.about-image {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 1s ease-out;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+  vertical-align: top;
+}
+
+.about-image:hover img {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.team-section {
+  padding: 60px 0;
+  background-color: #f0f0f0;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover img {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.mission-section,
+.values-section {
+  padding: 60px 0;
+}
+
+.mission-section h2,
+.values-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mission-section p,
+.values-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #495057;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .team-section h2,
+  .mission-section h2,
+  .values-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-content,
+  .about-image {
+    margin-bottom: 20px;
+  }
+
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .team-member h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Wave Styling */
+.wave-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100px; /* adjust as needed */
+  transform: rotate(180deg);
+}
+
+.wave {
+  background: url("../images/wave.png") repeat-x; /* Replace with your wave image */
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}

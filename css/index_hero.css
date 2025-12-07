@@ -1,0 +1,159 @@
+/* --- 1. HERO CONTAINER STYLING (Background & Overlay) --- */
+.hero-container {
+  /* Replace this with your actual image URL */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/lights.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Full height and centering content */
+  height: max-content;
+  min-height: fit-content; /* Minimum height for good visibility */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Padding for mobile devices */
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Context for absolute card placement */
+  z-index: 1;
+}
+
+/* --- 2. TEXT STYLING --- */
+.hero-title {
+  font-size: clamp(1.5rem, 4vw, 3.5rem); /* Responsive font size */
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--light-text);
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.blue-color {
+  color: var(--teal-color);
+}
+
+.hero-services-text {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--gray-text);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+/* --- 3. CTA BUTTONS --- */
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 120px; /* Space for the perk cards below it */
+  flex-wrap: wrap; /* Allows buttons to wrap on small screens */
+  justify-content: center;
+}
+
+.hero-cta button {
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Primary Button: Get Free Quote (Teal) */
+.hero-cta button:first-child {
+  background-color: var(--teal-color);
+  color: var(--light-text);
+  border: 2px solid var(--teal-color);
+}
+
+.hero-cta button:first-child:hover {
+  background-color: #179e8a; /* Darker teal on hover */
+  border-color: #179e8a;
+}
+
+/* Secondary Button: Call Now (Transparent/Gray Border) */
+.hero-cta button:last-child {
+  background-color: transparent;
+  color: var(--light-text);
+  border: 2px solid var(--gray-text);
+}
+
+.hero-cta button:last-child:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--light-text);
+}
+
+/* --- 4. PERK CARDS (The three boxes at the bottom) --- */
+.hero-perks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  width: 90%;
+  z-index: 10; /* Ensure cards float above other content */
+}
+
+.hero-perks-card {
+  background-color: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.hero-perks-icon {
+  /* The teal circle for the icons */
+  width: 50px;
+  height: 50px;
+  background-color: var(--teal-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.hero-perks-icon i {
+  /* Icon color and size */
+  color: var(--light-text);
+  font-size: 1.25rem;
+}
+
+.hero-perks-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+}
+
+.hero-perks-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* --- 5. MEDIA QUERIES (Responsiveness) --- */
+@media (max-width: 992px) {
+  /* Cards stack on smaller screens */
+  .hero-perks {
+    grid-template-columns: 1fr;
+    position: static; /* Move cards back into the flow */
+    transform: none;
+    margin-top: 40px; /* Space from CTAs */
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .hero-container {
+    height: auto;
+    min-height: 600px;
+    padding-bottom: 40px; /* Extra padding at the bottom when cards are static */
+  }
+
+  .hero-cta {
+    margin-bottom: 40px;
+  }
+}
