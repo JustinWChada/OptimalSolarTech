@@ -31,9 +31,9 @@
                     </a>
                     <div class="collapse" id="collapseServices">
                         <ul class="submenu">
-                            <li><a href="add_project.php">Add Service</a></li>
-                            <li><a href="available_Services.php">Available Services</a></li>
-                            <li><a href="available_Services.php">Edit Services</a></li>
+                            <li><a href="?add_services">Add Service</a></li>
+                            <li><a href="?available_services">Available Services</a></li>
+                            <li><a href="?edit_services">Edit Services</a></li>
                         </ul>
                     </div>
                 </li>

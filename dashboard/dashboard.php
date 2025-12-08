@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
   <html lang="en">
   
@@ -21,18 +26,20 @@
   </head>
 
   <body>
-    <section class="container-fluid main">
-        <div class="row">
-            <div class="col-md-3">
-                <?php include 'structure/sidebar.php'; ?>
-            </div>
-            <div class="col-md-9">
-                <?php include 'structure/navbar.php'; ?>
-                <div class="content">
-                    <!-- Data will be shown here -->
-                </div>
-            </div>
+    <section class="container-fluid g-0">
+      <div class="row g-0">
+        <div class="col-md-2 g-0 m-0 sidebar-container">
+          <?php include 'structure/sidebar.php'; ?>
         </div>
+        <div class="col-md-10 g-0 position-relative p-0">
+          <div class="row g-0">
+            <?php include 'structure/navbar.php'; ?>
+          </div>
+          <div class="row g-0 dashboard-content" id="dashboardContent">
+            <!-- Data will be shown here -->
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -42,6 +49,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/navigation.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/sidebar.js"></script>
   </body>
