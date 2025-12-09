@@ -2,9 +2,9 @@ const pageRoutes = {
     'add_services': 'services/add_services.php',
     'available_services': 'services/services.php',
     'edit_services': 'services/services.php',
+    'services': 'services/services.php',
 
     'dashboard': 'pages/dashboard.php',
-    'services': 'pages/services.php',
     'settings': 'pages/settings.php'
 };
 

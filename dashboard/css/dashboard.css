@@ -3,13 +3,19 @@
     padding: 15px;
   }
 }
+
 .main {
   display: flex;
   flex-direction: row;
   height: 100vh;
 }
+
 .dashboard-content {
   padding: 20px;
   overflow-y: auto;
   margin-top: 60px;
+}
+
+.modal{
+  z-index: 3000;
 }
