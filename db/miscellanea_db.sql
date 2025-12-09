@@ -1,5 +1,4 @@
-CREATE DATABASE ost_miscellanea
-the whole code content in this text i.e the card-title (as service_title), card-description (as service_description), card-image (as service_img_path) i want you to generate the sql code for inserting the data into the following tables:
+CREATE DATABASE ost_miscellanea;
 
 CREATE TABLE services (
     service_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,11 +10,11 @@ CREATE TABLE services (
 );
 
 CREATE TABLE services_images (
+    image_id INT AUTO_INCREMENT PRIMARY KEY,
     service_id INT NOT NULL,
     service_img_path VARCHAR(255) NOT NULL,
     FOREIGN KEY (service_id) REFERENCES services(service_id) ON DELETE CASCADE
 );
-
 
 INSERT INTO services (service_title, service_description, status) VALUES
 ('Air Conditioning Installation', 'Expert installation of residential and commercial air conditioning units with energy-efficient solutions.', 'active'),

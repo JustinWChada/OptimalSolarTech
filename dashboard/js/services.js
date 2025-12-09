@@ -79,8 +79,7 @@ function loadServices() {
           ? "../files/uploads/services/" + img
           : "images/placeholder.png";
         thumbs += `<img src="${url}" class="service-thumb" alt="" data-service="${s.service_id}" data-img="${img}">`;
-        
-    });
+      });
       thumbs += "</div>";
 
       html += `
@@ -170,37 +169,41 @@ $("#deleteImageBtn").on("click", function () {
 });
 
 function editService(id) {
-  $.getJSON("services/query_services.php", { action: "get", id: id }, function (resp) {
-    if (!resp.success) {
-      alert("Failed to load service");
-      return;
-    }
-    const s = resp.data;
-    // populate edit form in edit modal
-    $('#editServiceForm [name="service_id"]').val(s.service_id);
-    $('#editServiceForm [name="service_title"]').val(s.service_title);
-    $('#editServiceForm [name="service_description"]').val(
-      s.service_description
-    );
-    $('#editServiceForm [name="service_status"]').val(s.status);
-    // show existing images
-    let list = "";
-    (s.images || []).forEach((img) => {
-      const url = "../files/uploads/services/" + img;
-      list += `<div class="me-2 mb-2 d-inline-block text-center">
+  $.getJSON(
+    "services/query_services.php",
+    { action: "get", id: id },
+    function (resp) {
+      if (!resp.success) {
+        alert("Failed to load service");
+        return;
+      }
+      const s = resp.data;
+      // populate edit form in edit modal
+      $('#editServiceForm [name="service_id"]').val(s.service_id);
+      $('#editServiceForm [name="service_title"]').val(s.service_title);
+      $('#editServiceForm [name="service_description"]').val(
+        s.service_description
+      );
+      $('#editServiceForm [name="service_status"]').val(s.status);
+      // show existing images
+      let list = "";
+      (s.images || []).forEach((img) => {
+        const url = "../files/uploads/services/" + img;
+        list += `<div class="me-2 mb-2 d-inline-block text-center">
                     <img src="${url}" class="service-thumb" style="width:72px;height:72px;"><br>
                     <small class="text-muted">${img}</small>
                 </div>`;
-    });
-    $("#existingImagesContainer").html(
-      list || '<small class="text-muted">No images</small>'
-    );
-    // show modal
-    const editModal = new bootstrap.Modal(
-      document.getElementById("editServiceModal")
-    );
-    editModal.show();
-  }).fail(function () {
+      });
+      $("#existingImagesContainer").html(
+        list || '<small class="text-muted">No images</small>'
+      );
+      // show modal
+      const editModal = new bootstrap.Modal(
+        document.getElementById("editServiceModal")
+      );
+      editModal.show();
+    }
+  ).fail(function () {
     alert("Failed to load");
   });
 }
