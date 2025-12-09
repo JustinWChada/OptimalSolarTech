@@ -45,13 +45,6 @@ require_once '../config/miscellanea_db.php';
         }
     </style>
 
-    <!-- New Service Modal -->
-    <div class="modal fade" id="newServiceModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            
-        </div>
-    </div>
-
    
     <script>
         let currentTab = 'new-service';

@@ -1,3 +1,7 @@
+<?php
+    require_once "../config/miscellanea_db.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +47,37 @@
             <div class="container">
                 <h2 class="text-center">What We Offer</h2>
                 <div class="row g-4">
+
+                    <!-- Fetching services in addition to previously existing services -->
+                    <?php
+                        $service_query = "SELECT service_id, service_title, service_description FROM services WHERE status = 'active' ";
+                        $service_result = $OstMiscellaneaConn->query($service_query);
+
+                        if ($service_result->num_rows > 0) {
+                            while ($service_row = $service_result->fetch_assoc()) {
+                                $service_id = $service_row['service_id'];
+                                $service_title = $service_row['service_title'];
+                                $service_description = $service_row['service_description'];
+                                echo '
+                                    <div class="col-md-6">
+                                        <div class="service-card">
+                                            <h3 class="service-card-title">
+                                                ' . htmlspecialchars($service_title) . '
+                                            </h3>
+                                            <p class="service-card-description">
+                                                <small class="small-desc">Short Description:</small> <br/>
+                                                ' . htmlspecialchars($service_description) . '
+                                            </p>
+                                            <a href="services_desc?' . urlencode($service_title) . '&id='.urlencode($service_id).'" class="card-link service-learn-more">
+                                                Learn More →
+                                            </a>
+                                        </div>
+                                    </div>
+                                ';
+                            }
+                        }
+                    ?>
+
                     <!--Wiring and Rewiring -->
                     <div class="col-md-6">
                         <div class="service-card">

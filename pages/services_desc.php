@@ -1,3 +1,7 @@
+<?php
+    require_once "../config/miscellanea_db.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,51 +29,48 @@
 <body>
     <section class="service-container py-5">
         <div class="container">
-            <h2 class="section-title text-center fw-bold m-2">Service Title Here</h2>
+            <?php
+            // Fetch service data from URL parameter
+            $serviceId = isset($_GET['id']) ? intval($_GET['id']) : 1;
+
+            // Fetch service details
+            $serviceQuery = "SELECT * FROM services WHERE service_id = ?";
+            $stmt = $OstMiscellaneaConn->prepare($serviceQuery);
+            $stmt->bind_param("i", $serviceId);
+            $stmt->execute();
+            $serviceResult = $stmt->get_result();
+            $service = $serviceResult->fetch_assoc();
+
+            // Fetch service images
+            $imagesQuery = "SELECT * FROM services_images WHERE service_id = ? ORDER BY service_id ASC";
+            $stmt = $OstMiscellaneaConn->prepare($imagesQuery);
+            $stmt->bind_param("i", $serviceId);
+            $stmt->execute();
+            $imagesResult = $stmt->get_result();
+            ?>
+
+            <h2 class="section-title text-center fw-bold m-2"><?php echo htmlspecialchars($service['service_title'] ?? 'Service Title'); ?></h2>
+            <br>
             <div id="serviceCarousel" class="service-carousel carousel slide" data-bs-ride="carousel">
-
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="rowx">
-                            <div class="col-md-12">
-                                <img src="../images/pic1-home.PNG" class="d-block w-100"
-                                    alt="Alt">
+                    <?php
+                    $isActive = true;
+                    while ($image = $imagesResult->fetch_assoc()) {
+                        $activeClass = $isActive ? 'active' : '';
+                        ?>
+                        <div class="carousel-item <?php echo $activeClass; ?>">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="../files/uploads/services/<?php echo htmlspecialchars($image['service_img_path']); ?>" class="d-block w-100" alt="<?php echo htmlspecialchars($image['alt_text'] ?? 'Service image'); ?>">
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="../images/pic2-services.PNG" class="d-block w-100"
-                                    alt="Alt">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="../images/pic3.PNG" class="d-block w-100"
-                                    alt="Alt">
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="../images/pic4-whyus.PNG" class="d-block w-100" alt="OOPS! An error occurred">
-                            </div>
-                            <div class="col-md-12">
-                                <h3 class="recent-project-title">OOPS! An Error Occurred</h3>
-                                <p>Unfortunatle Information for this service is not yet available</p>
-                            </div>
-                        </div>
-                    </div>
+                        <?php
+                        $isActive = false;
+                    }
+                    ?>
                 </div>
 
-                <!-- Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -79,10 +80,10 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div>
+            <br>
+            <div class="service-description">
                 <p>
-                    Caurosel Description Here: <br>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.
+                    <?php echo htmlspecialchars($service['service_description'] ?? 'Service description not available'); ?>
                 </p>
             </div>
         </div>

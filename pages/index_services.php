@@ -28,7 +28,7 @@
           Expert installation of residential and commercial air conditioning
           units with energy-efficient solutions.
         </p>
-        <a href="services_desc?Air Conditioning Installation" class="card-link">Learn More →</a>
+        <a href="services_desc?Air Conditioning Installation&id=1" class="card-link">Learn More →</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
           Diagnose and repair issues with air conditioning systems quickly and
           efficiently.
         </p>
-        <a href="services_desc?Aircon Troubleshooting" class="card-link">Learn More →</a>
+        <a href="services_desc?Aircon Troubleshooting&id=2" class="card-link">Learn More →</a>
       </div>
     </div>
 
@@ -72,7 +72,7 @@
           Installation, repair, and maintenance of vehicle air conditioning
           systems for all car types.
         </p>
-        <a href="services_desc?Vehicle Air Conditioning" class="card-link">Learn More →</a>
+        <a href="services_desc?Vehicle Air Conditioning&id=3" class="card-link">Learn More →</a>
       </div>
     </div>
 
@@ -94,7 +94,7 @@
           Regular maintenance and servicing of air conditioning units to ensure
           optimal performance.
         </p>
-        <a href="services_desc?Aircon Servicing" class="card-link">Learn More →</a>
+        <a href="services_desc?Aircon Servicing&id=4" class="card-link">Learn More →</a>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
           Design, installation, and maintenance of solar panel systems for
           sustainable energy solutions.
         </p>
-        <a href="services_desc?Solar Installation" class="card-link">Learn More →</a>
+        <a href="services_desc?Solar Installation&id=5" class="card-link">Learn More →</a>
       </div>
     </div>
 

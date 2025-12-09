@@ -1,6 +1,6 @@
 <?php
 
-include '../queries/users_db.php';
+require_once '../config/users_db.php';
 
 // Sanitize and validate input
 $username = isset($_POST['username']) ? trim($_POST['username']) : '';
