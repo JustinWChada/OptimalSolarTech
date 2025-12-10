@@ -8,6 +8,10 @@ const pageRoutes = {
     'add_projects': 'projects/add_projects.php',
     'projects': 'projects/projects.php',
 
+    'available_faqs': 'faqs/faqs.php',
+    'add_faqs': 'faqs/faqs.php',
+    'faqs': 'faqs/faqs.php',
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };

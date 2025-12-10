@@ -46,8 +46,8 @@
                     </a>
                     <div class="collapse" id="collapseFAQs">
                         <ul class="submenu">
-                            <li><a href="add_project.php">Add FAQs</a></li>
-                            <li><a href="available_FAQs.php">Available FAQs</a></li>
+                            <li><a href="?add_faqs">Add FAQs</a></li>
+                            <li><a href="?available_faqs">Available FAQs</a></li>
                         </ul>
                     </div>
                 </li>
