@@ -67,3 +67,7 @@
   color: var(--primary-color);
   font-weight: bold;
 }
+
+.modal{
+  z-index: 1300;
+}

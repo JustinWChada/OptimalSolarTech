@@ -146,13 +146,21 @@
                     echo "<h4 class='project-title'>" . $projects[$id]['title'] . "</h4>";
                     echo "<h4 class='project-place'>" . $projects[$id]['place'] . "</h4>";
                     echo "<h4>Project Date: " . $projects[$id]['date'] . "</h4>";
-                    echo "<h4>Project Reviews: " . $projects[$id]['review_count']. "[" . $projects[$id]['average_rating'] . "]" . "</h4>";
+                    echo "<h4>Project Reviews:". $projects[$id]['review_count']." &nbsp;&nbsp;";
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($projects[$id]['average_rating'] >= $i) {
+                            echo "<i class='bi bi-star-fill text-warning' id='star" . $i . "' data-rating='" . $i . "'></i>";
+                        } else {
+                            echo "<i class='bi bi-star' id='star" . $i . "' data-rating='" . $i . "'></i>";
+                        }
+                    }
+                    echo "</h4>";
                     echo "<h4>Project Core Team</h4>";
                     echo "</div>";
                     echo "<p>" . $projects[$id]['description'] . "</p>";
                     echo "<div class='project-controls p-2 m-2'>";
-                    echo "<button class='btn btn-outline-warning'><i class='bi bi-star-fill star-icon'></i></button>";
-                    echo "<button class='btn btn-outline-primary'><i class='bi bi-phone star-icon'></i></button>";
+                    echo "<button class='btn btn-outline-warning m-1' data-bs-toggle='modal' data-bs-target='#reviewModal' data-project-id='" . $id . "' onclick=\"document.getElementById('projectId').value = '" . $id . "';\"><i class='bi bi-star-fill star-icon'></i></button>";
+                    echo "<button class='btn btn-outline-primary m-1'><i class='bi bi-phone star-icon'></i></button>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
@@ -174,6 +182,38 @@
             </div>
         </section>
 
+        <!-- Modal -->
+        <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reviewModalLabel">Leave a Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="reviewForm">
+                        <div class="modal-body">
+                            <input type="hidden" id="projectId" name="projectId">
+                            <label for="">Select:</label>
+                            <div class="rating-stars">
+                                <input type="hidden" id="rating" name="rating" value ="5">
+                                <i class="bi bi-star-fill text-warning" id="star1" data-rating="1"></i>
+                                <i class="bi bi-star-fill text-warning" id="star2" data-rating="2"></i>
+                                <i class="bi bi-star-fill text-warning" id="star3" data-rating="3"></i>
+                                <i class="bi bi-star-fill text-warning" id="star4" data-rating="4"></i>
+                                <i class="bi bi-star-fill text-warning" id="star5" data-rating="5"></i>
+                            </div>
+                            <br>
+                            <textarea class="form-control" id="reviewText" name="reviewText" rows="3" placeholder="Your review..."></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     <?php 
         include "../includes/nav_quote_modal.php";    
         include "../includes/index_social_control.php";     
@@ -190,6 +230,7 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
       <script src="../js/nav_quote_modal.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
+      <script src="../js/projects.js" type="text/javascript"></script>
 </body>
 
 </html>
