@@ -7,7 +7,7 @@
 
         <nav class="sidebar-menu">
             <ul>
-                <li><a href="dashboard.php"><i class="bi bi-speedometer"></i> Dashboard</a></li>
+                <li><a href="?dashboard"><i class="bi bi-speedometer"></i> Dashboard</a></li>
                 
                 <!-- Projects Section -->
                 <li>
@@ -17,8 +17,8 @@
                     </a>
                     <div class="collapse" id="collapseProjects">
                         <ul class="submenu">
-                            <li><a href="add_project.php">Add Project</a></li>
-                            <li><a href="available_projects.php">Available Projects</a></li>
+                            <li><a href="?add_projects">Add Project</a></li>
+                            <li><a href="?available_projects">Available Projects</a></li>
                         </ul>
                     </div>
                 </li>

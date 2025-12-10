@@ -1,0 +1,88 @@
+/* projects/styles.css */
+:root {
+    --primary-color: #0f2b2a;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar, .footer {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card {
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+}
+
+.image-icon-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.image-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.image-icon:hover {
+    border-color: var(--primary-color);
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+.carousel-item img {
+    max-height: 80vh;
+    object-fit: contain;
+    width: 100%;
+    margin: auto;
+}
+
+.btn-icon {
+    margin-left: 5px;
+}
+
+/* Insert Page Styling */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-member-input, .image-upload-input {
+    margin-top: 10px;
+}

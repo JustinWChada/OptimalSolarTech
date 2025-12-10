@@ -4,6 +4,10 @@ const pageRoutes = {
     'edit_services': 'services/services.php',
     'services': 'services/services.php',
 
+    'available_projects': 'projects/projects.php',
+    'add_projects': 'projects/add_projects.php',
+    'projects': 'projects/projects.php',
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };

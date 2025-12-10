@@ -8,9 +8,23 @@ if (isset($_GET['services_added']) && $_GET['services_added'] == 1) {
 }
 ?>
 
+<nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="?available_services"><i class="bi bi-box-seam-fill"></i> Service Portfolio</a>
+            <div class="d-flex">
+                <a href="?available_services" class="btn btn-outline-light">
+                    <i class="bi bi-arrow-left-circle"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </nav>
 
+<div class="form-container my-5">
+    <header class="text-center mb-4">
+        <h1 class="fw-bold text-dark">Add a New Service</h1>
+        <p class="lead text-secondary">Fill in the details for your new service entry.</p>
+    </header>
 
-<div class="form-container">
     <?php if ($success_message != ''): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
         <i class="bi bi-check-circle"></i> <?php echo $success_message; ?>

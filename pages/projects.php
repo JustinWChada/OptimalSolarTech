@@ -98,8 +98,8 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    
                     </p>
                     <div class="project-controls p-2 m-2">
-                        <button class="btn btn-outline-warning"><i class="ri-star-fill star-icon"></i></button>
-                        <button class="btn btn-outline-primary"><i class="ri-phone-line star-icon"></i></button>
+                        <button class="btn btn-outline-warning"><i class="bi bi-star-fill star-icon"></i></button>
+                        <button class="btn btn-outline-primary"><i class="bi bi-phone star-icon"></i></button>
                     </div>
                 </div>
             </div>
