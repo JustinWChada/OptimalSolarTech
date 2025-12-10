@@ -17,7 +17,7 @@
             <div class="mb-3">
                 <label for="phone" class="form-label required">Phone Number</label>
                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="+263 ** *** ****" required>
-                <div class="form-text form-note">Include country code if outside your country.</div>
+                <div class="form-text form-note">Include country code if outside Zimbabwe.</div>
             </div>
 
             <div class="mb-3">
@@ -44,7 +44,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"> Cancel <i class="bi bi-x"></i> </button>
-            <button type="submit" id="submitBtn" class="btn btn-outline-primary"> Send <i class="bi bi-telegram"></i> </button>
+            <button type="submit" id="submitBtn" class="btn btn-outline-success"> Send <i class="bi bi-telegram"></i> </button>
         </div>
       </form>
     </div>

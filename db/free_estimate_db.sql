@@ -1,0 +1,16 @@
+
+CREATE TABLE free_estimate (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(255) NOT NULL,
+
+    phone VARCHAR(20) NOT NULL,
+
+    service VARCHAR(50) NOT NULL,
+
+    description TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);

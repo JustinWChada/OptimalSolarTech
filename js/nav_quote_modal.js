@@ -8,18 +8,20 @@ $(function () {
     $alert.hide().removeClass("alert-success alert-danger").text("");
     $submit.prop("disabled", true).text("Sending...");
 
+    form = document.getElementById("quoteForm");
+
     // Collect form data
     var data = {
       action: "submit_quote",
-      name: $("#name").val(),
-      phone: $("#phone").val(),
-      service: $("#service").val(),
-      description: $("#description").val(),
+      name: document.getElementById("quoteForm").name.value,
+      phone: document.getElementById("quoteForm").phone.value,
+      service: document.getElementById("quoteForm").service.value,
+      description: document.getElementById("quoteForm").description.value,
     };
 
     $.ajax({
-      url: "", // same page handles POST
-      method: "POST",
+      type: "POST",
+      url: "../queries/nav_quote_modal_query.php", // same page handles POST
       data: data,
       dataType: "json",
       success: function (resp) {
@@ -39,15 +41,15 @@ $(function () {
         } else {
           var msg = "Please correct the errors and try again.";
           if (resp && resp.errors && resp.errors.length) {
-            msg = resp.errors.join(" ");
+            msg = resp.errors;//.join(" ");
           }
           $alert.addClass("alert-danger").text(msg).show();
         }
       },
-      error: function (xhr) {
+      error: function (xhr, status, error) {
         $alert
           .addClass("alert-danger")
-          .text("An error occurred. Please try again later.")
+          .text("An error occurred. Please try again later."+error)
           .show();
       },
       complete: function () {

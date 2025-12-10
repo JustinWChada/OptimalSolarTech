@@ -60,6 +60,7 @@
       <script src="../js/nav_quote_modal.js" type="text/javascript"></script>
       <script src="../js/index_free_estimate.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
+      <script src="../js/contact.js" type="text/javascript"></script>
 
   </body>
 </html>

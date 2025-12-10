@@ -299,7 +299,6 @@ window.addImageUpload = function() {
  */
 function handleInsertProject(e) {
     e.preventDefault();
-    alert('Submitting project... Please wait.');
     const form = e.target;
     const formData = new FormData(form);
     formData.append('action', 'insert_project');

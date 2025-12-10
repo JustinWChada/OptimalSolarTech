@@ -1,6 +1,6 @@
 /* Custom modal form tweaks */
 .modal {
-  z-index: 200;
+  z-index: 1200;
 }
 
 .modal-header {

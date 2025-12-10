@@ -5,7 +5,7 @@
         <h5 class="modal-title" id="freeEstimateModalLabel">Free Estimate Request</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form id="freeEstimateForm" novalidate>
+      <form id="freeEstimateForm">
         <div class="modal-body">
             <div id="ajaxAlert" class="alert ajax-alert" role="alert"></div>
 
@@ -44,7 +44,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"> Cancel <i class="bi bi-x"></i> </button>
-            <button type="submit" id="submitBtn" class="btn btn-outline-primary"> Send <i class="bi bi-telegram"></i> </button>
+            <button type="submit" id="submitBtn" class="btn btn-outline-success"> Send <i class="bi bi-telegram"></i> </button>
         </div>
       </form>
     </div>
