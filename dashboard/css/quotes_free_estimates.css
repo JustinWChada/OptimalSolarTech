@@ -1,5 +1,5 @@
 
-.contact-card {
+.fq-card {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
@@ -13,7 +13,7 @@
     height: fit-content;
 }
 
-.contact-card:hover {
+.fq-card:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Slight lift on hover */
 }
 
@@ -57,7 +57,7 @@
     transition: transform 0.3s ease-in-out; /* Smooth rotation */
 }
 
-.contact-card.expanded .expand-icon {
+.fq-card.expanded .expand-icon {
     transform: rotate(180deg); /* Arrow points up when expanded */
 }
 
@@ -70,7 +70,7 @@
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
-.contact-card.expanded .card-details {
+.fq-card.expanded .card-details {
     max-height: 200px; /* Adjust this value to be larger than your max content height */
     padding: 15px 20px;
 }
