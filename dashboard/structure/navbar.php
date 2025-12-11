@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="/dashboard/messages" aria-label="Messages" data-bs-toggle="tooltip" title="Messages">
+                <a class="nav-link text-white" href="?messages" aria-label="Messages" data-bs-toggle="tooltip" title="Messages">
                     <i class="bi bi-chat-dots fs-5" aria-hidden="true"></i>
                 </a>
             </li>

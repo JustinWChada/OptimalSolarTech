@@ -12,6 +12,8 @@ const pageRoutes = {
     'add_faqs': 'faqs/faqs.php',
     'faqs': 'faqs/faqs.php',
 
+    'messages': 'messages/messages.php',
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };
