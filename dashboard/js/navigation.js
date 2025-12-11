@@ -14,6 +14,10 @@ const pageRoutes = {
 
     'messages': 'messages/messages.php',
 
+    'quotes': 'quotes & estimates/quotes.php',
+    'free_estimates': 'quotes & estimates/free_estimates.php',
+
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };

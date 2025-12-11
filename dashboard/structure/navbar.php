@@ -19,13 +19,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="/dashboard/quotes" aria-label="Quotes" data-bs-toggle="tooltip" title="Quotes">
+                <a class="nav-link text-white" href="?quotes" aria-label="Quotes" data-bs-toggle="tooltip" title="Quotes">
                     <i class="bi bi-receipt fs-5" aria-hidden="true"></i>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="/dashboard/estimates" aria-label="Free Estimates" data-bs-toggle="tooltip" title="Free Estimates">
+                <a class="nav-link text-white" href="?free_estimates" aria-label="Free Estimates" data-bs-toggle="tooltip" title="Free Estimates">
                     <i class="bi bi-calculator fs-5" aria-hidden="true"></i>
                 </a>
             </li>

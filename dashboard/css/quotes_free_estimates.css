@@ -1,0 +1,82 @@
+
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 15px;
+    overflow: hidden; /* Crucial for hiding expanded content */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover/click */
+    border-left: 5px solid #00a896; /* Accent color bar */
+    width: 500px;
+    margin:10px;
+    height: fit-content;
+}
+
+.contact-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Slight lift on hover */
+}
+
+/* --- Header (Always Visible) --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #2c3e50; /* Dark text for name */
+}
+
+.phone {
+    color: #34495e; /* Subdued text for phone */
+    margin-left: 15px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 12px;
+    right: 80px;
+    color: #e74c3c; /* Red color for delete icon */
+    font-size: 1.2em;
+    cursor: pointer;
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+/* --- Icon and Animation --- */
+.expand-icon {
+    /* Simple CSS triangle as the arrow icon */
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #00a896; /* Accent color */
+    transition: transform 0.3s ease-in-out; /* Smooth rotation */
+}
+
+.contact-card.expanded .expand-icon {
+    transform: rotate(180deg); /* Arrow points up when expanded */
+}
+
+/* --- Details Section (Hidden by default) --- */
+.card-details {
+    /* Use max-height and padding for the smooth expansion effect */
+    max-height: 0;
+    padding: 0 20px;
+    background-color: #fcfcfc; /* Slight color difference for details */
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.contact-card.expanded .card-details {
+    max-height: 200px; /* Adjust this value to be larger than your max content height */
+    padding: 15px 20px;
+}
+
+.card-details p {
+    margin-bottom: 5px;
+    line-height: 1.4;
+    color: #616c7a;
+}
