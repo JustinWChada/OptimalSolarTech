@@ -18,6 +18,7 @@ const pageRoutes = {
     'free_estimates': 'quotes & estimates/free_estimates.php',
 
     'account': 'profile/profile.php',
+    'profile': 'profile/profile.php',
     'edit_profile': 'profile/edit_profile.php',
 
     'dashboard': 'pages/dashboard.php',

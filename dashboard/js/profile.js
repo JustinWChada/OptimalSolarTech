@@ -15,7 +15,7 @@ function loadProfile() {
         return response.json();
     })
     .then(data => {
-        console.log('Profile data received:', data); //remove
+        
         if (data.success && data.profile) {
             container.innerHTML = createProfileCard(data.profile);
         } else {
@@ -61,8 +61,8 @@ function createProfileCard(profile) {
                 <br>
                 <div class="text-start p-2 bg-light rounded shadow-sm">
                     <h5 class="text-secondary"><i class="bi bi-hourglass-split me-2"></i>Account State:</h5>
-                    <p class="mb-0 px-4"><strong>Active</strong> ${profile.is_active ? '<i class="bi bi-person-check text-success"></i>' : '<i class="bi bi-person-slash-fill text-danger"></i>' || 'N/A'}</p>
-                    <p class="mb-0 px-4"><strong>Verified</strong> ${profile.is_verified ? '<i class="bi bi-person-fill-check text-success"></i>' : '<i class="bi bi-person-fill-exclamation text-danger"></i>' || 'N/A'}</p>
+                    <button class="btn-small mb-0 px-4 ${profile.is_active ? 'btn btn-success' : 'btn btn-danger'}" onclick="toggleAccountState(${profile.user_id})">${profile.is_active ? 'Active' : 'Not Active'}</button>
+                    <button class="btn-small mb-0 px-4 ${profile.is_verified ? 'btn btn-success' : 'btn btn-danger'}" data-bs-toggle="modal" data-bs-target="#verificationTokenModal" >${profile.is_verified ? "Verified" : "Not Verified"} </button>
                 </div>
 
                 <div class="text-start p-2 bg-light rounded shadow-sm">
@@ -80,3 +80,63 @@ function createProfileCard(profile) {
 }
 
 loadProfile();
+
+function toggleAccountState() {
+    // Implement the logic to toggle account state
+    
+    if(!confirm("Are you sure you want to toggle the account state?")) return; //confirm
+
+    $.ajax({
+        url: 'profile/query_profile.php',
+        type: 'POST',
+        data: { action: 'toggle_account_state', userId: "" },
+        success: function(response) {
+            const data = JSON.parse(response);
+            if (data.success) {
+                //alert('Account state updated successfully.'); //uncomment if you want an alert
+                loadProfile(); // Reload profile to reflect changes
+            } else {
+                alert('Error: ' + (data.message || 'Could not update account state.'));
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error toggling account state:', status, error);
+            alert('A network error occurred.'); 
+            console.log(xhr.responseText);
+            console.log(error);
+        }
+    });
+
+}   
+
+$("#verification_token_form").submit(function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let token  = document.getElementById("verification_token_form").verification_token.value;  
+
+    toggleAccountVerification(token);
+});
+
+function toggleAccountVerification(token) {
+    
+    if(!confirm("Are you sure you want to toggle the account verification?")) return; //confirm
+
+    $.ajax({
+        url: 'profile/query_profile.php',
+        type: 'POST',
+        data: { action: 'toggle_account_verification', userId: "" , token: token },
+        success: function(response) {
+            const data = JSON.parse(response);
+            if (data.success) {
+                $("#verificationTokenModal").modal('hide');
+                loadProfile(); // Reload profile to reflect changes
+            } else {
+                alert('Error: ' + (data.message || 'Could not update account verification.'));
+            }
+        },
+        error: function(xhr, status, error) {
+            alert('A network error occurred.'); 
+            console.error(xhr.responseText);
+        }
+    })
+}

@@ -2,10 +2,16 @@
 
 require_once '../config/users_db.php';
 
-// -----------------------------------------------------------------------------
-// Main Handler
-// -----------------------------------------------------------------------------
+session_start();
+
 header('Content-Type: application/json');
+
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(401);
+    echo json_encode(['success' => false, 'message' => 'Unauthorized access. Please log in.']);
+    exit;
+}
+
 
 if (!isset($_POST['action'])) {
     http_response_code(400);
@@ -17,8 +23,21 @@ $action = $_POST['action'];
 
 switch ($action) {
     case 'load_profile':
-        loadProfile(1); 
+        loadProfile($_SESSION['user_id']); 
         break;
+    
+    case 'toggle_account_state':
+        toggleAccountState();
+        break;
+
+    case 'toggle_account_verification':
+        toggleAccountVerification();
+        break;
+
+    case 'update_profile':
+        updateProfile();    
+        break;
+
     default:
         http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Invalid action.']);
@@ -69,5 +88,133 @@ function loadProfile($id) {
         http_response_code(500);
         echo json_encode(['success' => false, 'message' => "Error loading profile: " . $e->getMessage()]);
     }
+}
+
+function toggleAccountState() {
+
+    header('Content-Type: application/json');
+
+    require '../config/users_db.php';
+    
+    if (!isset($_POST['userId'])) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'No user ID specified.']);
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id']; //$_POST['userId'];
+
+    try {
+        $sql = "UPDATE users SET is_active = NOT is_active WHERE user_id = ?";
+        $stmt = $OstUsersConn->prepare($sql);
+        $stmt->bind_param('i', $user_id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo json_encode(['success' => true, 'message' => 'Account state toggled successfully.']);
+        } else {
+            http_response_code(404);
+            echo json_encode(['success' => false, 'message' => "User with ID $user_id not found."]);
+        }
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => "Error toggling account state: " . $e->getMessage()]);
+    }
+}
+
+function toggleAccountVerification() {
+
+    header('Content-Type: application/json');
+
+    require '../config/users_db.php';
+    
+    if (!isset($_POST['userId']) || !isset($_POST['token'])) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'No user ID or token specified.']);
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id']; //$_POST['userId'];
+    $token = $_POST['token'];
+
+
+    try {
+        $sql = "UPDATE users SET is_verified = NOT is_verified WHERE user_id = ? AND verification_token = ?";
+        $stmt = $OstUsersConn->prepare($sql);
+        $stmt->bind_param('is', $user_id,$token);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo json_encode(['success' => true, 'message' => 'Account verification toggled successfully.']);
+        } else {
+            http_response_code(404);
+            echo json_encode(['success' => false, 'message' => "User with ID $user_id not found."]);
+        }
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => "Error toggling account verification: " . $e->getMessage()]);
+    }
+}
+
+function updateProfile() {
+    require '../config/users_db.php';
+
+    $user_id = $_SESSION['user_id'];
+
+    try {
+       
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $user_phone = $_POST['user_phone'];
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+        if (empty($password)) {
+            $sql = "UPDATE users SET username = ?, email = ?, first_name = ?, last_name = ?, user_phone = ? WHERE user_id = ?";
+            $stmt = $OstUsersConn->prepare($sql);
+            $stmt->bind_param("sssssi", $username, $email, $first_name, $last_name, $user_phone, $user_id);
+        } else {
+            $sql = "UPDATE users SET username = ?, email = ?, password_hash = ?, first_name = ?, last_name = ?, user_phone = ? WHERE user_id = ?";
+            $stmt = $OstUsersConn->prepare($sql);
+            $stmt->bind_param("ssssssi", $username, $email, $hashed_password, $first_name, $last_name, $user_phone, $user_id);
+        }
+        
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo json_encode (['success' => true, 'message' => 'Profile updated successfully.']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Failed to update profile.']);
+        }
+
+        $stmt->close();
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => "Error updating profile: " . $e->getMessage()]);
+    }
+}
+
+function hashPassword($password) {
+    return password_hash($password, PASSWORD_BCRYPT);
+}
+
+function generatePasswordResetToken($length = 32) {
+    return bin2hex(random_bytes($length / 2));
+}
+
+function generateVerificationToken($length = 32) {
+    return bin2hex(random_bytes($length / 2));
+}
+
+function sendVerificationEmail($email, $token) {
+    $subject = "Account Verification";
+    $message = "Please use the following token to verify your account: $token";
+
+    mail($email, $subject, $message);
 }
 ?>

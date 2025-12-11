@@ -32,10 +32,6 @@ if (isset($_GET['services_added']) && $_GET['services_added'] == 1) {
 
     <?php endif; ?> 
     
-    <h2 class="form-title">
-        <i class="bi bi-plus-circle"></i>
-        Add New Service
-    </h2>
 
     <form action="services/query_services.php" method="POST" enctype="multipart/form-data" id="serviceForm">
         <!-- Service Title -->
