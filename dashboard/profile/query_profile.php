@@ -207,9 +207,7 @@ function generatePasswordResetToken($length = 32) {
     return bin2hex(random_bytes($length / 2));
 }
 
-function generateVerificationToken($length = 32) {
-    return bin2hex(random_bytes($length / 2));
-}
+
 
 function sendVerificationEmail($email, $token) {
     $subject = "Account Verification";

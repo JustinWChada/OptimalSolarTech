@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-2" href="?add-user" aria-label="Add user" data-bs-toggle="tooltip" title="Add User">
+                        <a class="dropdown-item d-flex align-items-center gap-2" href="?add_user" aria-label="Add user" data-bs-toggle="tooltip" title="Add User">
                             <i class="bi bi-person-plus"></i>
                             <span class="visually-hidden-not">Add User</span>
                         </a>

@@ -21,6 +21,9 @@ const pageRoutes = {
     'profile': 'profile/profile.php',
     'edit_profile': 'profile/edit_profile.php',
 
+    'users': 'settings/users.php',
+    'add_user': 'settings/add_user.php',
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };
