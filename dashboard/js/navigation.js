@@ -17,6 +17,8 @@ const pageRoutes = {
     'quotes': 'quotes & estimates/quotes.php',
     'free_estimates': 'quotes & estimates/free_estimates.php',
 
+    'account': 'profile/profile.php',
+    'edit_profile': 'profile/edit_profile.php',
 
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'

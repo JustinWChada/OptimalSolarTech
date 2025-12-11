@@ -37,20 +37,20 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-2" href="/dashboard/account" aria-label="Account" data-bs-toggle="tooltip" title="Account">
+                        <a class="dropdown-item d-flex align-items-center gap-2" href="?account" aria-label="Account" data-bs-toggle="tooltip" title="Account">
                             <i class="bi bi-person"></i>
                             <span class="visually-hidden-not">Account</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-2" href="/dashboard/add-user" aria-label="Add user" data-bs-toggle="tooltip" title="Add User">
+                        <a class="dropdown-item d-flex align-items-center gap-2" href="?add-user" aria-label="Add user" data-bs-toggle="tooltip" title="Add User">
                             <i class="bi bi-person-plus"></i>
                             <span class="visually-hidden-not">Add User</span>
                         </a>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="/logout" aria-label="Sign out" data-bs-toggle="tooltip" title="Sign Out">
+                        <a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="?logout" aria-label="Sign out" data-bs-toggle="tooltip" title="Sign Out">
                             <i class="bi bi-box-arrow-right"></i>
                             <span class="visually-hidden-not">Sign Out</span>
                         </a>
