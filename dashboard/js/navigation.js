@@ -29,7 +29,7 @@ const pageRoutes = {
 
     'emergencies': 'emergencies/emergencies.php',
 
-    'dashboard': 'structure/dashboard.php',
+    'dashboard': 'structure/dashboard_2.php',
     'settings': 'settings/settings.php'
 };
 

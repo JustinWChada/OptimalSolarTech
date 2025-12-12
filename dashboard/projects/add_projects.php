@@ -1,4 +1,6 @@
-
+<?php
+require "../config/miscellanea_db.php";
+?>
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -41,7 +43,28 @@
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
                         </div>
-                        
+
+                        <h4 class="mb-3 text-success"><i class="bi bi-box-seam-fill"></i> Services</h4>
+                        <div class="mb-4">
+                            <input type="hidden" name="selected_services" class="form-control" id="selected_services" value="">
+                            <?php
+                            $services_query = "SELECT * FROM services WHERE status = 'active'";
+                            $services_result = mysqli_query($OstMiscellaneaConn, $services_query);
+                            if (mysqli_num_rows($services_result) > 0) {
+                                while ($service = mysqli_fetch_assoc($services_result)) {
+                            ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="<?php echo $service['service_title']; ?>" id="service-<?php echo $service['service_id']; ?>" onclick="updateSelectedServices(this)">
+                                <label class="form-check-label" for="service-<?php echo $service['service_id']; ?>">
+                                    <?php echo $service['service_title']; ?>
+                                </label>
+                            </div>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
+
                         <hr>
                         
                         <h4 class="mb-3 text-success"><i class="bi bi-people-fill"></i> Team Members</h4>

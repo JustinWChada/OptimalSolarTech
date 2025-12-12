@@ -16,12 +16,14 @@
   margin-top: 60px;
 }
 
-.modal{
+.modal {
   z-index: 3000;
 }
 
 .emergency-icon {
-  background: #ffcc00; /* Bright orange, suitable for an emergency icon */ /*#f73030*/
+  background: #ffcc00;
+  /* Bright orange, suitable for an emergency icon */
+  /*#f73030*/
   box-shadow: 0 6px 14px rgba(37, 211, 102, 0.15);
   color: white;
   animation: flicker 1s infinite alternate;
@@ -35,4 +37,32 @@
   100% {
     opacity: 0.4;
   }
+}
+
+/*this is for the main page dashboard */
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

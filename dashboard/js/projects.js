@@ -332,3 +332,22 @@ function handleInsertProject(e) {
         alert('A network error occurred during project insertion.');
     });
 }
+
+function updateSelectedServices(service_checkbox) {
+    const selected_services_textbox = document.getElementById('selected_services');
+    const selected_services = selected_services_textbox.value.split(',');
+    const current_service_id = service_checkbox.value;
+    const current_service_index = selected_services.indexOf(current_service_id);
+
+    if (service_checkbox.checked) {
+        if (current_service_index === -1) {
+            selected_services.push(current_service_id);
+        }
+    } else {
+        if (current_service_index !== -1) {
+            selected_services.splice(current_service_index, 1);
+        }
+    }
+
+    selected_services_textbox.value = selected_services.join(',');
+}

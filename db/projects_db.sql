@@ -4,6 +4,7 @@ CREATE TABLE projects (
     place VARCHAR(255),
     date DATETIME,
     description LONGTEXT,
+    service_tags LONGTEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

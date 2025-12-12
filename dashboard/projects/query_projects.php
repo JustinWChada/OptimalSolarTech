@@ -111,10 +111,10 @@ function insertProject() {
         require '../config/miscellanea_db.php';
 
         // 1. Insert into projects table
-        $sql = "INSERT INTO projects (title, place, date, description) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO projects (title, place, date, description, service_tags) VALUES (?, ?, ?, ?, ?)";
         $stmt = $OstMiscellaneaConn->prepare($sql);
         
-        $stmt->bind_param("ssss", $_POST['title'], $_POST['place'], $_POST['date'], $_POST['description']);
+        $stmt->bind_param("sssss", $_POST['title'], $_POST['place'], $_POST['date'], $_POST['description'], $_POST['selected_services']);
         if (!$stmt->execute()) respond(false, [], 'DB insert failed: '.$stmt->error);
         $project_id = $stmt->insert_id;
         $stmt->close();

@@ -68,17 +68,21 @@
                   id="service"
                   name="service"
                   class="input-field select-field"
+                  required
                 >
                   <option value="">Select a service</option>
-                  <option value="air-conditioning">
-                    Air Conditioning Installation
-                  </option>
-                  <option value="ac-repair">Aircon Troubleshooting</option>
-                  <option value="vehicle-ac">Vehicle Air Conditioning</option>
-                  <option value="ac-servicing">Aircon Servicing</option>
-                  <option value="solar">Solar Installation</option>
-                  <option value="plumbing">Borehole Plumbing</option>
-                  <option value="electrical">House Wiring</option>
+                  <?php
+                    require '../config/miscellanea_db.php';
+
+                    $sql = "SELECT service_id, service_title FROM services WHERE status = 'active'";
+                    $result = $OstMiscellaneaConn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                      while ($row = $result->fetch_assoc()) {
+                          echo '<option value="' . htmlspecialchars($row['service_title']) . '">' . htmlspecialchars($row['service_title']) . '</option>';
+                      }
+                    }
+                  ?>
                 </select>
                 <i
                   class="ri-arrow-down-s-line select-icon"
