@@ -7,7 +7,7 @@
 
         <ul class="navbar-nav ms-auto d-flex flex-row align-items-center gap-3">
             <li class="nav-item">
-                <a class="nav-link text-white" href="/dashboard/home" aria-label="Home" data-bs-toggle="tooltip" title="Home">
+                <a class="nav-link text-white" href="?home" aria-label="Home" data-bs-toggle="tooltip" title="Home">
                     <i class="bi bi-house fs-5" aria-hidden="true"></i>
                 </a>
             </li>

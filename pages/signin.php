@@ -39,16 +39,6 @@
             </div> 
             <button class="btn btn-submit w-100 py-2" type="submit">Sign in</button> 
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2025</p> 
-            <?php
-              session_start();
-
-              echo $_SESSION['user_id'];
-              echo $_SESSION['session_id'];
-
-              echo ini_get('session.gc_maxlifetime');
-
-              var_dump(session_id(), $_SESSION);
-            ?>
         </form> 
     </main>
 

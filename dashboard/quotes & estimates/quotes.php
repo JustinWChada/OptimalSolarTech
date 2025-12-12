@@ -18,7 +18,7 @@
         <hr class="w-25 mx-auto">
     </header>
 
-    <div id="quotes-list-container" class="row">
+    <div id="quotes-list-container">
         <?php
 
         require_once '../config/miscellanea_db.php';

@@ -78,6 +78,11 @@ function getUrl(){
         return;
     }
 
+    if(url == "home"){
+        window.location.href = "../pages/";
+        return;
+    }
+
     // logic to handle the URL
     const pagePath = getPagePath(url);
 
