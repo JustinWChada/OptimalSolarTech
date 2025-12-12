@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="bi bi-box-seam-fill"></i> Dashboard</a>
+            <a class="navbar-brand" href="?dashboard"><i class="bi bi-box-seam-fill"></i> Dashboard</a>
             <a href="?projects" class="btn btn-outline-light">
                 <i class="bi bi-arrow-left-circle"></i> Back to Projects
             </a>

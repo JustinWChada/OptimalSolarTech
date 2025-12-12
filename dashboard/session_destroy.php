@@ -12,6 +12,9 @@ if (!empty($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != $_SERVER['RE
         exit('Forbidden Access');
     }
 }
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Expires: 0');
+header('Pragma: no-cache');
 
 session_start();
 session_destroy();

@@ -23,7 +23,8 @@
     </header>
 
     <div id="project-list-container" class="row">
-        <table class="table table-responsive">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
             <thead>
                 <tr>
                     <th>Name</th>

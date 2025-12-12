@@ -187,7 +187,7 @@ function showImageCarousel(images, startIndex = 0) {
         // Carousel Item
         const item = document.createElement('div');
         item.className = `carousel-item${index === startIndex ? ' active' : ''}`;
-        item.innerHTML = `<img src="${img.image_path}" class="d-block w-100" alt="${img.alt_text}">`;
+        item.innerHTML = `<img src="../files/uploads/projects/${img.image_path}" class="d-block w-100" alt="${img.alt_text}">`;
         carouselInner.appendChild(item);
 
         // Indicator

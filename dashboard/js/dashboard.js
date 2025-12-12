@@ -54,11 +54,6 @@ setInterval(function () {
   returnEmergenciesCount();
 }, 10000);
 
-//rerwite this:
-// if (!checkCookie()) {
-//   window.location.href = 'session_destroy.php';
-// }
-
 function returnCookieValue(val){
   const cookieValues = document.cookie.split(';').reduce((obj, item) => {
   const [key, value] = item.trim().split('=');
@@ -88,5 +83,7 @@ function returnEmergenciesCount(){
 function displayEmergenciesCount(emergencies){
   document.getElementById('emergencyMessages').innerHTML = "Emergencies (" + emergencies + ")";
 }
+
+checkCookie()
 
 returnEmergenciesCount();

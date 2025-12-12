@@ -67,15 +67,7 @@ function getUrl(){
 
     if(url == "signout" || url == "logout"){
 
-        if(confirm("Are you sure you want to sign out: This will close all data and all sessions ?")){
-            document.body.innerHTML = "";
-            document.body.innerHTML = "Closing all data and all sessions...";
-            
-            setTimeout(() => {
-                 window.location.href = "session_destroy.php";
-            }, 3000);
-           
-        }
+        logout();
        
         return;
     }
@@ -93,4 +85,24 @@ function getUrl(){
     }
 }
 
-getUrl()
+function logout() {
+    if(confirm("Are you sure you want to sign out: This will close all data and all sessions ?")){
+        document.body.innerHTML = "";
+        document.body.innerHTML = "Closing all data and all sessions...";
+
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i];
+            const eqPos = cookie.indexOf('=');
+            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+        }    
+        
+        setTimeout(() => {
+             window.location.href = "session_destroy.php";
+        }, 3000);
+       
+    }
+}
+
+getUrl();
