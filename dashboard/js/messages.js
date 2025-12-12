@@ -32,7 +32,9 @@ document.querySelectorAll(".message-card").forEach((card) => {
     modal.style.display = "block";
 
     //modal.querySelector(".modal-content") //.innerHTML = `<button class="close-button">&times;</button>`;
-    const modalContent = document.getElementById(`messageModalContent`); //modal.querySelector(".modal-content");
+    const modalContent = document.getElementById(`messageModalContentDetails`);
+    modalContent.innerHTML = "";
+    
     const nameElement = document.createElement("p");
     nameElement.className = "modal-name";
     let text = "<strong>Name: </strong> ";

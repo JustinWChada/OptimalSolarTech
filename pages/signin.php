@@ -39,13 +39,16 @@
             </div> 
             <button class="btn btn-submit w-100 py-2" type="submit">Sign in</button> 
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2025</p> 
-      <?php
-      session_start();
+            <?php
+              session_start();
 
-          echo $_SESSION['user_id']." ------- ";
-        echo $_SESSION['session_id'];
+              echo $_SESSION['user_id'];
+              echo $_SESSION['session_id'];
 
-      ?>
+              echo ini_get('session.gc_maxlifetime');
+
+              var_dump(session_id(), $_SESSION);
+            ?>
         </form> 
     </main>
 
@@ -58,9 +61,6 @@
       </script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <!-- <script src="../js/nav_quote_modal.js" type="text/javascript"></script>
-      <script src="../js/index_free_estimate.js" type="text/javascript"></script>
-      <script src="../js/index_social_control.js" type="text/javascript"></script> -->
       <script src="../js/signin.js" type="text/javascript"></script>
 
   </body>

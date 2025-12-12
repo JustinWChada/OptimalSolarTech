@@ -1,5 +1,17 @@
 <link rel="stylesheet" href="css/add_user.css">
 
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="?add_user"><i class="bi bi-box-seam-fill"></i> New User</a>
+        <div class="d-flex">
+            <a href="?users" class="btn btn-success">
+                <i class="bi bi-plus-circle-fill"></i> Users
+            </a>
+        </div>
+    </div>
+</nav>
+
+
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-xl-6">

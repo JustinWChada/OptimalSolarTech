@@ -15,3 +15,57 @@ $(document).ready(function () {
   });
 
 });
+
+function checkCookie() {
+  let user_id = returnCookieValue('user_id')
+  let user_name = returnCookieValue('user_name')
+  let session_id = returnCookieValue('session_id')
+
+  if (user_id != null && user_name != null && session_id != null) {
+    verifySession();
+  } else {
+    window.location.href = 'session_destroy.php';
+  }
+}
+
+
+function verifySession(){
+  
+  let user_id = returnCookieValue('user_id')
+  let user_name = returnCookieValue('user_name')
+  let session_id = returnCookieValue('session_id')
+
+  $.ajax({
+    type: 'POST',
+    url: 'verify.php',
+    data: {cookie_session_id: session_id},
+    success: function (response) {
+      if (response.success) {
+        console.log('Session destroyed successfully');
+      } //else {
+      //   console.log('Failed to destroy session (Session is valid!)');
+      // }
+    }
+  });
+}
+
+setInterval(function () {
+  checkCookie();
+}, 10000);
+
+//rerwite this:
+// if (!checkCookie()) {
+//   window.location.href = 'session_destroy.php';
+// }
+
+function returnCookieValue(val){
+  const cookieValues = document.cookie.split(';').reduce((obj, item) => {
+  const [key, value] = item.trim().split('=');
+  obj[key] = value;
+  return obj;
+}, {});
+
+ return(cookieValues[val]) ? cookieValues[val] : cookieValues.val;
+
+}
+

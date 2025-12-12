@@ -46,7 +46,7 @@
     <div id="messageModalContent" class="message-modal-content">
         <span class="close-button">&times;</span>
         <h2 class="modal-title my-2 text-success fw-bold" >Message Details:</h2>
-        
+        <div id="messageModalContentDetails"></div>
     </div>
 </div>
 

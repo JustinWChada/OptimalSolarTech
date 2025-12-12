@@ -30,9 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
     $_SESSION['user_id'] = $user_id;
     $_SESSION['session_id'] = session_id();
     
-    // Redirect to dashboard with session ID in URL (optional)
-    //header('Location: ../dashboard/dashboard.php?session_id=' . session_id());
-
     echo json_encode(
         [
             'success' => true,

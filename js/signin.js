@@ -13,10 +13,10 @@ $(document).ready(function() {
                 if(response.success) {
                     alert(response.message);
                     // Store user data in session storage or cookies
-                    sessionStorage.setItem('user_id', response.user.user_id);
-                    sessionStorage.setItem('user_name', response.user.username);
-                    //sessionStorage.setItem('user_password', response.user_password);
-
+                    var expires = "expires=" + new Date(Date.now() + 60 * 1000 * 60 * 24 * 1).toUTCString();
+                    document.cookie = "user_id=" + response.user.user_id + ";" + expires + "; path=/";
+                    document.cookie = "user_name=" + response.user.username + ";" + expires + "; path=/";
+                    
                     // Redirect or clear form as needed
                     $.ajax({
                         type: 'POST',
@@ -27,9 +27,11 @@ $(document).ready(function() {
                         },
                         success: function(session_response) {
                             if(JSON.parse(session_response).success){
-                                //alert(JSON.parse(session_response).message + JSON.parse(session_response).session_id);: remove after testing
-                                sessionStorage.setItem('session_id', session_response.session_id);
-                                window.location.href = '../dashboard/dashboard.php?' + JSON.parse(session_response).session_id;
+
+                                var expires = "expires=" + new Date(Date.now() + 60 * 1000 * 60 * 24 * 1).toUTCString();
+                                document.cookie = "session_id=" + JSON.parse(session_response).session_id + ";" + expires + "; path=/";
+                                
+                                window.location.href = '../dashboard/dashboard?' + JSON.parse(session_response).session_id;
                             } else {
                                 alert(JSON.parse(session_response).message);
                             }

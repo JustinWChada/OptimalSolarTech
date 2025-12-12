@@ -24,6 +24,9 @@ const pageRoutes = {
     'users': 'settings/users.php',
     'add_user': 'settings/add_user.php',
 
+    'logout': 'logout.php',
+    'signout': 'logout.php',
+
     'dashboard': 'pages/dashboard.php',
     'settings': 'pages/settings.php'
 };
@@ -59,6 +62,21 @@ function loadPage(pagePath) {
 
 function getUrl(){
     const url = getUrlParameter();
+
+    if(url == "signout" || url == "logout"){
+
+        if(confirm("Are you sure you want to sign out: This will close all data and all sessions ?")){
+            document.body.innerHTML = "";
+            document.body.innerHTML = "Closing all data and all sessions...";
+            
+            setTimeout(() => {
+                 window.location.href = "session_destroy.php";
+            }, 3000);
+           
+        }
+       
+        return;
+    }
 
     // logic to handle the URL
     const pagePath = getPagePath(url);

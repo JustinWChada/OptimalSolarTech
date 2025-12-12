@@ -1,9 +1,11 @@
 <?php
 session_start();
 
+require "verify.php";
+
 // Check if user is authenticated
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../pages/signin.php');
+    header('Location: session_destroy.php');
     exit();
 }
 
