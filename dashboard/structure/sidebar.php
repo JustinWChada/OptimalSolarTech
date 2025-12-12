@@ -56,10 +56,10 @@
                 <li><a href="testimonials.php"><i class="bi bi-chat-right-quote"></i> Testimonials</a></li>
 
                 <!-- Additional Relevant Sections -->
-                <li><a href="customers.php"><i class="bi bi-person-lines-fill"></i> Customers</a></li>
+                <li><a href="?customers" hidden><i class="bi bi-person-lines-fill"></i> Customers</a></li>
                 <li><a href="?messages"><i class="bi bi-envelope"></i> Inquiries</a></li>
-                <li><a href="settings.php"><i class="bi bi-gear"></i> Settings</a></li>
-                <li><a href="settings.php"><button class="btn btn-outline-danger" id="emergencyMessages">Emergencies (1)</button></a></li>
+                <li><a href="?settings"><i class="bi bi-gear"></i> Settings</a></li>
+                <li><a href="?emergencies"><button class="btn emergency-icon" id="emergencyMessages"></button></a></li>
             </ul>
         </nav>
     </div>

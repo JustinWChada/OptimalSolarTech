@@ -20,5 +20,10 @@
                 <i class="bi bi-whatsapp"></i>
             </button>
         </a>
+        <a class="icon-link" href="?emergencies" rel="noopener noreferrer" title="Emergency Requests" data-bs-toggle="modal" data-bs-target="#emergencyModal" aria-label="Emergency Requests">
+            <button class="btn emergency-icon" aria-label="Emergency Requests">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </button>
+        </a>
     </div>
 </div>

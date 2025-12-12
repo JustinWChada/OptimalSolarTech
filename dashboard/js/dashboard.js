@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-  setInterval(function () {
-    $("#emergencyMessages").toggleClass("active");
-  }, 2000);
+  // setInterval(function () {
+  //   $("#emergencyMessages").toggleClass("active");
+  // }, 2000);
 
   $("#sidebarToggle").click(function () {
     $(".sidebar").toggleClass("open");
@@ -51,6 +51,7 @@ function verifySession(){
 
 setInterval(function () {
   checkCookie();
+  returnEmergenciesCount();
 }, 10000);
 
 //rerwite this:
@@ -69,3 +70,23 @@ function returnCookieValue(val){
 
 }
 
+function returnEmergenciesCount(){
+  let emergencies = 0;
+  
+  $.ajax({
+    type: 'POST',
+    url: 'emergencies/query_emergencies.php',
+    data: {action: 'count'},
+    success: function (response) {
+      emergencies = JSON.parse(response).count;
+      displayEmergenciesCount(emergencies);
+    }
+  });
+
+}
+
+function displayEmergenciesCount(emergencies){
+  document.getElementById('emergencyMessages').innerHTML = "Emergencies (" + emergencies + ")";
+}
+
+returnEmergenciesCount();

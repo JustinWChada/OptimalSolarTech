@@ -216,7 +216,9 @@
 
     <?php 
         include "../includes/nav_quote_modal.php";    
-        include "../includes/index_social_control.php";     
+        include "../includes/index_social_control.php";  
+        include "../includes/emergencies.php";
+
     ?>
 
     <footer>
@@ -231,6 +233,7 @@
       <script src="../js/nav_quote_modal.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
       <script src="../js/projects.js" type="text/javascript"></script>
+      <script src="../js/emergencies.js"></script>
 </body>
 
 </html>

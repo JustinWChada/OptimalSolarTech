@@ -59,7 +59,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="/dashboard/settings" aria-label="Settings" data-bs-toggle="tooltip" title="Settings">
+                <a class="nav-link text-white" href="?settings" aria-label="Settings" data-bs-toggle="tooltip" title="Settings">
                     <i class="bi bi-gear fs-5" aria-hidden="true"></i>
                 </a>
             </li>

@@ -3,6 +3,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="?messages"><i class="bi bi-box-seam-fill"></i> Messages</a>
+        <div class="d-flex">
+            <a href="?emergencies" class="btn emergency-icon">
+                <i class="bi bi-plus-circle-fill"></i> Emergencies
+            </a>
+        </div>
     </div>
 </nav>
 

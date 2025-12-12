@@ -102,6 +102,23 @@
   transform: rotate(180deg);
 }
 
+.emergency-icon {
+  background: #ffcc00; /* Bright orange, suitable for an emergency icon */ /*#f73030*/
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.15);
+  color: white;
+  animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
 @media screen and (max-width: 769px) {
   /* Container fixed to left-bottom */
   .socials-container {

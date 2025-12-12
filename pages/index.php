@@ -44,7 +44,8 @@
         include "index_contact.php";
         include "../includes/nav_quote_modal.php";     
         include "../includes/index_free_estimate_modal.php";     
-        include "../includes/index_social_control.php";     
+        include "../includes/index_social_control.php";
+        include "../includes/emergencies.php";
       ?>
     </section>
 
@@ -61,6 +62,7 @@
       <script src="../js/index_free_estimate.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
       <script src="../js/contact.js" type="text/javascript"></script>
+      <script src="../js/emergencies.js" type="text/javascript"></script>
 
   </body>
 </html>

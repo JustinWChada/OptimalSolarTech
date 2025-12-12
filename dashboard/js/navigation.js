@@ -27,8 +27,10 @@ const pageRoutes = {
     'logout': 'logout.php',
     'signout': 'logout.php',
 
-    'dashboard': 'pages/dashboard.php',
-    'settings': 'pages/settings.php'
+    'emergencies': 'emergencies/emergencies.php',
+
+    'dashboard': 'structure/dashboard.php',
+    'settings': 'settings/settings.php'
 };
 
 function getPagePath(page) {

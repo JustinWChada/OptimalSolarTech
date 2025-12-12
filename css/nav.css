@@ -30,7 +30,8 @@
   width: 32px;
   height: 32px;
   background-color: var(--primary-color);
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;
+  /* Rounded corners */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +39,8 @@
 
 .b-logo i {
   color: var(--white);
-  font-size: 1.1rem; /* Adjusting icon size */
+  font-size: 1.1rem;
+  /* Adjusting icon size */
 }
 
 .b-text {
@@ -85,7 +87,8 @@
 }
 
 .getquote-btn:hover {
-  background-color: #179e8a; /* Darker on hover */
+  background-color: #179e8a;
+  /* Darker on hover */
 }
 
 /* 5. MOBILE TOGGLE (Hidden on Desktop) */
@@ -98,6 +101,7 @@
   .nav-menu {
     padding: 10px;
   }
+
   .nav-item a {
     display: block;
     width: 100%;

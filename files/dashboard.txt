@@ -1,0 +1,20 @@
+Total number of users: Display the total number of registered users in your system. This can give you an idea of the growth of your user base.
+Active users: Show the number of active users in the last 24 hours, 7 days, or any other time period you want to track. This can help you understand user engagement and activity.
+New users: Display the number of new users registered in the last 24 hours, 7 days, or any other time period. This can give you an idea of the growth rate of your user base.
+Total number of projects: Show the total number of projects in your system. This can give you an idea of the scope and scale of your project management system.
+Active projects: Display the number of active projects in the last 24 hours, 7 days, or any other time period. This can help you understand project activity and engagement.
+New projects: Display the number of new projects created in the last 24 hours, 7 days, or any other time period. This can give you an idea of the rate at which new projects are being created.
+Total number of messages: Show the total number of messages in your system. This can give you an idea of the volume of communication in your system.
+New messages: Display the number of new messages received in the last 24 hours, 7 days, or any other time period. This can help you understand the rate of communication in your system.
+Total number of services: Show the total number of services in your system. This can give you an idea of the scope and scale of your service management system.
+Active services: Display the number of active services in the last 24 hours, 7 days, or any other time period. This can help you understand service activity and engagement.
+New services: Display the number of new services created in the last 24 hours, 7 days, or any other time period. This can give you an idea of the rate at which new services are being created.
+Popular projects: Display a list of the most popular projects based on some criteria such as number of users, number of messages, or number of services. This can help you understand which projects are the most active and popular.
+Popular services: Display a list of the most popular services based on some criteria such as number of users, number of messages, or number of projects. This can help you understand which services are the most active and popular.
+User activity: Display a graph or chart showing the activity of users over time. This can help you understand the patterns and trends of user activity in your system.
+Project activity: Display a graph or chart showing the activity of projects over time. This can help you understand the patterns and trends of project activity in your system.
+Service activity: Display a graph or chart showing the activity of services over time. This can help you understand the patterns and trends of service activity in your system.
+User demographics: Display information about the demographics of your user base such as age, gender, location, and other relevant information. This can help you understand your user base and tailor your services to their needs.
+Project demographics: Display information about the demographics of your projects such as size, complexity, duration, and other relevant information. This can help you understand your project base and tailor your services to their needs.
+Service demographics: Display information about the demographics of your services such as size, complexity, duration, and other relevant information. This can help you understand your service base and tailor your services to their needs.
+User feedback: Display a summary of user feedback such as ratings, reviews, and comments. This can help you understand user satisfaction and identify areas for improvement.
