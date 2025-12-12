@@ -3,16 +3,21 @@
 require "../config/miscellanea_db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete' ) {
-    $emergency_id = isset($_GET['emergencyId']) ? (int)$_GET['emergencyId'] : 0;
+    $emergency_id = isset($_POST['emergencyId']) ? (int)$_POST['emergencyId'] : 0;
     
     // Prepare and execute the delete statement
     $stmt = $OstMiscellaneaConn->prepare("UPDATE emergencies SET status = 'deleted' WHERE id = ?");
     $stmt->bind_param("i", $emergency_id);
     $stmt->execute();
-    $stmt->close();
 
-    echo json_encode(['success' => true, 'message' => 'Emergency deleted successfully.']);
-    
+    if($stmt->affected_rows > 0) {
+        echo json_encode(['status' => 'success', 'message' => 'Emergency deleted successfully.'.$emergency_id]);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to delete emergency.'.$emergency_id]);
+    }
+
+    $stmt->close();
+ 
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'count' ) {

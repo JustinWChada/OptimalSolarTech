@@ -6,7 +6,6 @@ function deleteEmergency(id){
         type: "POST",
         data: { action: "delete", emergencyId: id },
         success: function (response) {
-            console.log("Delete response:", response); //remove
             
             location.reload();
         },
