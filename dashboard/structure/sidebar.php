@@ -53,7 +53,7 @@
                 </li>
 
                 <!-- Testimonials Section -->
-                <li><a href="testimonials.php"><i class="bi bi-chat-right-quote"></i> Testimonials</a></li>
+                <li><a href="?testimonials"><i class="bi bi-chat-right-quote"></i> Testimonials</a></li>
 
                 <!-- Additional Relevant Sections -->
                 <li><a href="?customers" hidden><i class="bi bi-person-lines-fill"></i> Customers</a></li>

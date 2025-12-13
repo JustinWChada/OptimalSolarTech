@@ -1,3 +1,7 @@
+<?php
+  require "../config/miscellanea_db.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,93 +43,110 @@
   </div>
             
             <div class="relative container testimonial-container my-5">
-              <!-- Testimonial Card 1 -->
-              <div class="testimonial-card">
-                <div class="star-rating">
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                </div>
-                <p class="quote-text">
-                  "Excellent service! They installed our new AC unit quickly and
-                  professionally. The team was courteous and cleaned up after
-                  themselves. Highly recommended!"
-                </p>
-                <div class="customer-info">
-                  <img
-                    alt="Sarah Johnson"
-                    class="customer-avatar"
-                    src="https://placehold.co/48x48/C1E1C1/000?text=SJ"
-                  />
-                  <div>
-                    <h4 class="customer-name">Sarah Johnson</h4>
-                    <p class="customer-title">Homeowner</p>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Testimonial Card 2 -->
-              <div class="testimonial-card">
-                <div class="star-rating">
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                </div>
-                <p class="quote-text">
-                  "Optimal Solar Tech handled our commercial solar installation perfectly.
-                  Great communication throughout the project and excellent workmanship.
-                  Very satisfied with the results."
-                </p>
-                <div class="client-info">
-                  <img
-                    alt="Michael Chen"
-                    class="client-avatar"
-                    src="https://placehold.co/48x48/C1E1C1/000?text=MC"
-                  />
-                  <div>
-                    <h4 class="client-name">Michael Chen</h4>
-                    <p class="client-title">Business Owner</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonial Card 3 -->
-              <div class="testimonial-card">
-                <div class="star-rating">
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                  <i class="ri-star-fill star-icon"></i>
-                </div>
-                <p class="quote-text">
-                  "We use Optimal Solar Tech for all our electrical and plumbing needs across
-                  multiple properties. They are reliable, professional, and always
-                  deliver quality work on time."
-                </p>
-                <div class="client-info">
-                  <img
-                    alt="Emily Rodriguez"
-                    class="client-avatar"
-                    src="https://placehold.co/48x48/C1E1C1/000?text=ER"
-                  />
-                  <div>
-                    <h4 class="client-name">Emily Rodriguez</h4>
-                    <p class="client-title">Property Manager</p>
-                  </div>
-                </div>
-              </div>
+              <!-- Testimonial Cards -->
+              <?php
+              $sql = "SELECT rating, customer_email, customer_name, customer_title, description FROM testimonials WHERE status = 'accepted'";
+              $result = $OstMiscellaneaConn->query($sql);
+              if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    $name = $row['customer_name'];
+                    $first_name_initial = substr($name[0], 0, 1);
+                    $last_name_initial = substr($name[1], 0, 1);
+                          
+                      ?>
+                      <div class="testimonial-card">
+                        <div class="star-rating">
+                          <?php
+                          for ($i = 1; $i <= 5; $i++) {
+                              if ($row['rating'] >= $i) {
+                                  echo "<i class='ri-star-fill star-icon'></i>";
+                              } else {
+                                  echo "<i class='ri-star star-icon'></i>";
+                              }
+                          }
+                          ?>
+                        </div>
+                        <p class="quote-text">
+                          <?php echo $row['description']; ?>
+                        </p>
+                        <div class="client-info">
+                          <img
+                            alt="<?php echo $row['customer_name']; ?>"
+                            class="customer-avatar"
+                            src="https://placehold.co/48x48/C1E1C1/000?text=<?php echo $first_name_initial.$last_name_initial; ?>"
+                          />
+                        
+                          <div class="mx-2>
+                            <h4 class="client-name"><?php echo $row['customer_name']; ?></h4>
+                            <p class="client-title"><?php echo $row['customer_title']; ?></p>
+                          </div>
+                        </div>
+                      </div>
+                      <?php
+                  }
+              }
+              ?>
 
             </div>
+
+            <header class="text-center mb-4">
+                <h1 class="display-4 fw-bold">Leave us a review</h1>
+                <p class="lead text-secondary">If you have been satisfied with our services kidly leave us a review. If not please let us know (through a <a href="#testimonials" data-bs-toggle='modal' data-bs-target='#reviewModal'>review</a> or contact us <a href="../pages/#contact">here</a>).</p>
+                <hr class="w-25 mx-auto">
+                <a href="#testimonials" data-bs-toggle='modal' data-bs-target='#reviewModal' class="btn btn-outline-success">Leave a Review</a>
+            </header>
+
+            <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="reviewModalLabel">Leave a Review</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div id="ajaxAlert" class="alert alert-dismissible fade show" role="alert"></div>
+                      <form id="reviewForm">
+                          <div class="modal-body">
+                              <input type="hidden" id="projectId" name="projectId" value = "5">
+                              <label for="">Select:</label>
+                              <div class="rating-stars">
+                                  <input type="hidden" id="rating" name="review_rating" value ="5">
+                                  <button type="button" class="btn btn-small" id="star1" data-rating="1"><i class="bi bi-star text-warning"></i></button>
+                                  <button type="button" class="btn btn-small" id="star2" data-rating="2"><i class="bi bi-star text-warning"></i></button>
+                                  <button type="button" class="btn btn-small" id="star3" data-rating="3"><i class="bi bi-star text-warning"></i></button>
+                                  <button type="button" class="btn btn-small" id="star4" data-rating="4"><i class="bi bi-star text-warning"></i></button>
+                                  <button type="button" class="btn btn-small" id="star5" data-rating="5"><i class="bi bi-star text-warning"></i></button>
+                              </div>
+                              <br>
+                              <textarea class="form-control" id="reviewText" name="review_text" rows="3" placeholder="Your review..." required></textarea>
+                              <br>
+                              
+                              <div class="mb-3">
+                                  <label for="customer_email" class="form-label">Your Email:</label>
+                                  <input type="email" class="form-control" id="customer_email" name="customer_email" placeholder="etc. johndoe123@gmail.com" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="customer_name" class="form-label">Your Name:</label>
+                                  <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="etc. John Doe" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="customer_title" class="form-label">Your Title</label>
+                                  <input type="text" class="form-control" id="customer_title" name="customer_title" placeholder="etc. Manager, Home Owner" required>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-success">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
 
     <?php 
         include "../includes/nav_quote_modal.php";
         include "../includes/index_social_control.php";   
-        include "../includes/emergencies.php";   
+        include "../includes/emergencies.php";  
     ?>
 
     <footer>
@@ -141,6 +162,7 @@
       <script src="../js/index_free_estimate.js" type="text/javascript"></script>
       <script src="../js/index_social_control.js" type="text/javascript"></script>
       <script src="../js/emergencies.js"></script>
+      <script src="../js/testimonials.js"></script>
       
 </body>
 </html>

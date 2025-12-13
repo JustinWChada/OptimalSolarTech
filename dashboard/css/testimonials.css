@@ -1,0 +1,117 @@
+/* Container styling to create a grid layout */
+#testimonials-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* The Main Testimonial Card */
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Interaction: Lift effect and shadow on hover */
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-color: #0d6efd; /* Matches Bootstrap Primary */
+}
+
+/* Quote Icon Decoration (Optional pseudo-element for style) */
+.testimonial-card::before {
+    content: "\f671"; /* FontAwesome or similar quote icon code */
+    font-family: "bootstrap-icons";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: #f8f9fa;
+    z-index: 0;
+}
+
+/* Rating Stars */
+.rating {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.rating i {
+    font-size: 1.1rem;
+    margin-right: 2px;
+}
+
+/* Testimonial Text */
+.testimonial-description {
+    font-style: italic;
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Customer Info Section */
+.testimonial-info {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.testimonial-info p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Customer Name and Title */
+.testimonial-info p:first-child {
+    font-weight: 700;
+    color: #212529;
+    font-size: 1rem;
+}
+
+/* Customer Email */
+.testimonial-info p:last-child {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Status Dropdown Styling */
+.testimonial-card .dropdown {
+    width: 100%;
+}
+
+.testimonial-card .dropdown-toggle {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.testimonial-card .dropdown-toggle:hover {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+/* Custom colors for statuses (if you want the button to change) */
+.testimonial-card .dropdown-item[data-status="accepted"] { color: #198754; }
+.testimonial-card .dropdown-item[data-status="rejected"] { color: #dc3545; }
+.testimonial-card .dropdown-item[data-status="pending"] { color: #ffc107; }

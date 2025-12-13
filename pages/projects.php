@@ -190,6 +190,7 @@
                         <h5 class="modal-title" id="reviewModalLabel">Leave a Review</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div id="ajaxAlert" class="alert alert-dismissible fade show" role="alert"></div>
                     <form id="reviewForm">
                         <div class="modal-body">
                             <input type="hidden" id="projectId" name="projectId">
