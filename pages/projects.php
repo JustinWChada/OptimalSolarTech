@@ -99,73 +99,67 @@
                         $projects[$id]['average_rating'] = 0;
                     }
 
-                    echo "<div class='project-card row g-2 my-5'>";
-                    echo "<div class='project-img-container col-md-6'>";
-                    // Display the images in a carousel
-                    echo "<div id='projectCarousel" . $id . "' class='project-carousel carousel slide' data-bs-ride='carousel'>";
-                    echo "<div class='carousel-inner'>";
-                    $active = "active";
-                    if (!empty($projects[$id]['images'])) {
-                        $images = $projects[$id]['images'];
-                        foreach ($images as $image) {
-                            echo "<div class='carousel-item $active'>";
-                            echo "<div class='rowx'>";
-                            echo "<div class='col-md-12'>";
-                            echo "<img src='../files/uploads/projects/" . $image['image_path'] . "' class='d-block w-100' alt='" . $image['alt_text'] . "'>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-                            $active = "";
-                        }
-                    } else {
-                        echo "<div class='carousel-item'>";
-                        echo "<div class='row'>";
-                        echo "<div class='col-md-12'>";
-                        echo "<img src='../images/placeholder.png' class='d-block w-100' alt='Alt'>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                    }
-                    echo "</div>";
-                    ?>
-                    <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                   ?>
+                    <div class='project-card row g-0 my-5'>
+                    <div class='project-img-container col-md-6'>
+                            <div id='projectCarousel<?php echo $id ?>' class='project-carousel carousel slide' data-bs-ride='carousel'>
+                                <div class='carousel-inner'>
+                                    <?php
+                                    $active = "active";
+                                    if (!empty($projects[$id]['images'])) {
+                                        foreach ($projects[$id]['images'] as $image) {
+                                            echo "<div class='carousel-item $active'>";
+                                                echo "<img src='../files/uploads/projects/" . $image['image_path'] . "' alt='" . $image['alt_text'] . "'>";
+                                            echo "</div>";
+                                            $active = "";
+                                        }
+                                    } else {
+                                        echo "<div class='carousel-item active'>";
+                                            echo "<img src='../images/placeholder.png' alt='Placeholder'>";
+                                        echo "</div>";
+                                    }
+                                    ?>
+                                </div>
+                                
+                                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel<?php echo $id ?>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel<?php echo $id ?>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
+                            </div>
+                        </div>
+
+                        <div class='project-content col-md-6'>
+                            <h4 class='project-title'><?php echo $projects[$id]['title'] ?></h4>
+                            <div class='project-place'><?php echo $projects[$id]['place'] ?></div>
+                            
+                            <div class='project-meta-info'>
+                                <span><i class='bi bi-calendar3 me-2'></i><?php echo $projects[$id]['date'] ?></span>
+                                <div class='rating-group'>
+                                    <?php
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        $starClass = ($projects[$id]['average_rating'] >= $i) ? 'bi-star-fill text-warning' : 'bi-star';
+                                        echo "<i class='bi $starClass'></i>";
+                                    }
+                                    ?>
+                                    <span class='ms-2 fw-bold'>(<?php echo $projects[$id]['review_count'] ?>)</span>
+                                </div>
+                            </div>
+
+                            <p><?php echo $projects[$id]['description'] ?></p>
+
+                            <div class='project-controls'>
+                                <button class='btn btn-modern btn-review' data-bs-toggle='modal' data-bs-target='#reviewModal' onclick="document.getElementById('projectId').value = '<?php echo $id ?>'">
+                                        <i class='bi bi-star-fill'></i> Rate Project
+                                    </button>
+                                <button class='btn btn-modern btn-contact' onclick="window.location.href = '../pages/#contact'">
+                                        <i class='bi bi-phone'></i> Contact Us
+                                    </button>
+                            </div>
+                        </div>
+                   </div>
                     <?php
-                    echo "</div>";
-                    echo "</div>";
-
-                    echo "<div class='project-content col-md-6'>";
-                    echo "<div class='project-details'>";
-                    echo "<h4 class='project-title'>" . $projects[$id]['title'] . "</h4>";
-                    echo "<h4 class='project-place'>" . $projects[$id]['place'] . "</h4>";
-                    echo "<h4>Project Date: " . $projects[$id]['date'] . "</h4>";
-                    echo "<h4>Project Reviews:". $projects[$id]['review_count']." &nbsp;&nbsp;";
-                    for ($i = 1; $i <= 5; $i++) {
-                        if ($projects[$id]['average_rating'] >= $i) {
-                            echo "<i class='bi bi-star-fill text-warning' id='star" . $i . "' data-rating='" . $i . "'></i>";
-                        } else {
-                            echo "<i class='bi bi-star' id='star" . $i . "' data-rating='" . $i . "'></i>";
-                        }
-                    }
-                    echo "</h4>";
-                    echo "<h4>Project Core Team</h4>";
-                    echo "</div>";
-                    echo "<p>" . $projects[$id]['description'] . "</p>";
-                    echo "<div class='project-controls p-2 m-2'>";
-                    echo "<button class='btn btn-outline-warning m-1' data-bs-toggle='modal' data-bs-target='#reviewModal' data-project-id='" . $id . "' onclick=\"document.getElementById('projectId').value = '" . $id . "';\"><i class='bi bi-star-fill star-icon'></i></button>";
-                    echo "<button class='btn btn-outline-primary m-1'><i class='bi bi-phone star-icon'></i></button>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-
                 }
             ?>
         </section>

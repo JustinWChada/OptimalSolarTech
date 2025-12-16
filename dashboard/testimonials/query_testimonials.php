@@ -10,9 +10,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['a
     $result = mysqli_query($OstMiscellaneaConn, $query);
 
     if ($result) {
-        echo json_encode(['status' => 'success', 'message' => 'Testimonial deleted successfully.']);
+        echo json_encode(['success' => true, 'message' => 'Testimonial deleted successfully.']);
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Failed to delete testimonial.']);
+        echo json_encode(['success' => false, 'message' => 'Failed to delete testimonial.']);
     }
     
 }

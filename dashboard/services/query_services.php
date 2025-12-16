@@ -101,6 +101,8 @@ try {
         }
 
         respond(true, ['id'=>$service_id], 'Service added');
+        
+        header("Location: ../dashboard?add_services&services_added=1");
     }
 
     if ($action === 'edit') {
@@ -196,3 +198,5 @@ try {
 } catch (Exception $e) {
     respond(false, [], 'Exception: '.$e->getMessage());
 }
+
+?>

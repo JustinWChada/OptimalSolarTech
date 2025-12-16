@@ -11,7 +11,6 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 if(response.success) {
-                    alert(response.message);
                     // Store user data in session storage or cookies
                     var expires = "expires=" + new Date(Date.now() + 60 * 1000 * 60 * 24 * 1).toUTCString();
                     document.cookie = "user_id=" + response.user.user_id + ";" + expires + "; path=/";

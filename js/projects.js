@@ -49,7 +49,6 @@ $("#reviewForm").on("submit", function (e) {
     data: form_data,
     dataType: "json",
     success: function (resp) {
-        console.log(resp);
       if (resp.success) {
         $alert.addClass("alert-success").text("Review submitted successfully!");
         $form.trigger("reset");

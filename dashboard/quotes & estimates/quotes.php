@@ -30,7 +30,7 @@
 
         // Display the data
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='contact-card position-relative' onclick='toggleDetails(this)'>";
+            echo "<div class='fq-card position-relative' onclick='toggleDetails(this)'>";
             echo "<div class='card-header'>";
             echo "<div class='primary-info'>";
             echo "<span class='name'>" . $row['name'] . "</span>";

@@ -50,118 +50,89 @@ $("#insertProjectForm").submit(function(e) {
 /**
  * Loads all projects from the database and renders them.
  */
+/**
+ * Optimized Card Creation using Template Literals
+ */
+function createProjectCard(project) {
+    // Process description
+    const shortDesc = project.description.length > 150 
+        ? project.description.substring(0, 150) + '...' 
+        : project.description;
+
+    // Process images
+    const imagesHtml = project.images.length > 0 
+        ? project.images.map((img, idx) => `
+            <img src="../files/uploads/projects/${img.image_path}" 
+                 alt="${img.alt_text || 'Project Image'}" 
+                 class="image-icon" 
+                 onclick='showImageCarousel(${JSON.stringify(project.images)}, ${idx})'>
+        `).join('')
+        : '<small class="text-muted">No images available</small>';
+
+    // Process team
+    const teamHtml = project.team.length > 0
+        ? `<h6>Team:</h6><p>${project.team.map(m => `
+            <span class="badge bg-light text-dark me-1">${m.member_name} (${m.role})</span>
+          `).join('')}</p>`
+        : '';
+
+    // Process Reviews
+    const revCount = project.reviews.length;
+    const avgRating = revCount > 0 
+        ? (project.reviews.reduce((s, r) => s + parseInt(r.rating), 0) / revCount).toFixed(1) 
+        : 'N/A';
+
+    // Final Card Template
+    return `
+    <div class="col-lg-6 mb-4">
+        <div class="card project-card h-100" data-id="${project.id}">
+            <div class="project-card-header d-flex justify-content-between align-items-center p-3">
+                <h5 class="mb-0">${project.title}</h5>
+                <div>
+                    <span class="badge bg-success me-2">${project.place}</span>
+                    <span class="badge bg-light text-dark">${project.date.split(' ')[0]}</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text">${shortDesc}</p>
+                <hr>
+                <div class="image-icon-container mb-3">${imagesHtml}</div>
+                ${teamHtml}
+                <small class="text-muted">Reviews: ${revCount} | Avg Rating: ${avgRating}/5</small>
+                <div class="mt-3 d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-success me-2" onclick="editProject(${project.id})">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteProject(${project.id}, '${project.title.replace(/'/g, "\\'")}')">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+}
+
 function loadProjects() {
     const container = document.getElementById('project-list-container');
-    container.innerHTML = '<div class="text-center p-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+    container.innerHTML = '<div class="text-center p-5"><div class="spinner-border text-primary"></div></div>';
 
     fetch('projects/query_projects.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'action=load_projects'
     })
-    .then(response => response.json())
-    
+    .then(r => r.json())
     .then(data => {
-        container.innerHTML = '';
-       
         if (data.success && data.projects.length > 0) {
-            data.projects.forEach(project => {
-                container.appendChild(createProjectCard(project));
-            });
+            // Build the entire list as one string, then inject ONCE.
+            container.innerHTML = data.projects.map(p => createProjectCard(p)).join('');
         } else {
-            container.innerHTML = '<div class="col-12"><div class="alert alert-info" role="alert">No projects found.</div></div>';
+            container.innerHTML = '<div class="col-12"><div class="alert alert-info">No projects found.</div></div>';
         }
     })
-    .catch(error => {
-        console.error('Error loading projects:', error); //remove
-        alert(error.message) //remove
-        container.innerHTML = '<div class="col-12"><div class="alert alert-danger" role="alert">Failed to load projects.</div></div>'+error;
+    .catch(err => {
+        container.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
     });
-}
-
-/**
- * Creates the HTML element for a single project card.
- * @param {object} project - The project data.
- * @returns {HTMLElement} The created card element.
- */
-function createProjectCard(project) {
-    const col = document.createElement('div');
-    col.className = 'col-lg-6 mb-4';
-    
-    const card = document.createElement('div');
-    card.className = 'card project-card h-100';
-    card.setAttribute('data-id', project.id);
-    
-    // Header
-    const cardHeader = document.createElement('div');
-    cardHeader.className = 'project-card-header d-flex justify-content-between align-items-center';
-    cardHeader.innerHTML = `
-        <h5 class="mb-0">${project.title}</h5>
-        <div>
-            <span class="badge bg-success me-2">${project.place}</span>
-            <span class="badge bg-light text-dark">${project.date.split(' ')[0]}</span>
-        </div>
-    `;
-
-    // Body
-    const cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
-    
-    const description = document.createElement('p');
-    description.className = 'card-text';
-    description.textContent = project.description.substring(0, 150) + (project.description.length > 150 ? '...' : '');
-
-    // Image Icons
-    const imageContainer = document.createElement('div');
-    imageContainer.className = 'image-icon-container';
-    if (project.images && project.images.length > 0) {
-        project.images.forEach((img, index) => {
-            true_img_path = "../files/uploads/projects/" + img.image_path; // Adjust path as needed
-            const imgIcon = document.createElement('img');
-            imgIcon.src = true_img_path;
-            imgIcon.alt = img.alt_text || 'Project Image';
-            imgIcon.className = 'image-icon';
-            imgIcon.addEventListener('click', () => showImageCarousel(project.images, index));
-            imageContainer.appendChild(imgIcon);
-        });
-    } else {
-        imageContainer.innerHTML = '<small class="text-muted">No images available</small>';
-    }
-
-    // Team Members
-    let teamHtml = '';
-    if (project.team && project.team.length > 0) {
-        teamHtml = `<h6>Team:</h6><p>${project.team.map(m => `<span class="badge bg-light text-dark me-1">${m.member_name} (${m.role})</span>`).join('')}</p>`;
-    }
-
-    // Reviews (simple count)
-    const reviewCount = project.reviews ? project.reviews.length : 0;
-    const rating = project.reviews && reviewCount > 0 ? (project.reviews.reduce((sum, r) => sum + parseInt(r.rating), 0) / reviewCount).toFixed(1) : 'N/A';
-    const reviewHtml = `<small class="text-muted">Reviews: ${reviewCount} | Avg Rating: ${rating}/5</small>`;
-
-    // Action Buttons
-    const actionContainer = document.createElement('div');
-    actionContainer.className = 'mt-3 d-flex justify-content-end';
-    actionContainer.innerHTML = `
-        <button class="btn btn-sm btn-outline-success me-2" onclick="editProject(${project.id})">
-            <i class="bi bi-pencil-square"></i> Edit
-        </button>
-        <button class="btn btn-sm btn-outline-danger" onclick="deleteProject(${project.id}, '${project.title}')">
-            <i class="bi bi-trash"></i> Delete
-        </button>
-    `;
-
-    cardBody.appendChild(description);
-    cardBody.appendChild(document.createElement('hr'));
-    cardBody.appendChild(imageContainer);
-    cardBody.insertAdjacentHTML('beforeend', teamHtml);
-    cardBody.insertAdjacentHTML('beforeend', reviewHtml);
-    cardBody.appendChild(actionContainer);
-    
-    card.appendChild(cardHeader);
-    card.appendChild(cardBody);
-    col.appendChild(card);
-    return col;
 }
 
 

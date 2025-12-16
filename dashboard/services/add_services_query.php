@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         // Redirect with success message
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "&services_added=1");
+        header("Location: ../dashboard?add_services&services_added=1");
     
         exit;
     } catch (Exception $e) {
@@ -59,4 +59,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // TODO: Handle file upload for service images
 }
-    */
+
+header("Location: ../dashboard?add_services&services_added=1");

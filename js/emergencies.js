@@ -13,8 +13,6 @@ $(document).ready(function () {
       description: description,
     };
 
-    console.log(data)
-
     $.ajax({
       url: "../queries/submit_emergencies.php",
       type: "POST",

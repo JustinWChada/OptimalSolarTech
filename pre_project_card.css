@@ -1,0 +1,56 @@
+.projects-section {
+  padding: 80px 0;
+}
+
+.projects-section h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+.project-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  /* Ensure image doesn't overflow rounded corners */
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-out;
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.project-carousel {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.project-carousel img {
+  min-height: 400px;
+}
+
+.project-details {
+  max-width: 400px;
+  contain: content;
+  padding: 5px;
+  background-color: var(--card-bg);
+  cursor: default;
+  /* border: 2px solid var(--gray-text); */
+}
+
+.project-details h4 {
+  width: 100%;
+  font-size: 1rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--gray-text);
+  margin: 12px;
+}
+
+.project-content p {
+  margin-left: 12px;
+}

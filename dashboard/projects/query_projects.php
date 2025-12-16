@@ -39,62 +39,35 @@ switch ($action) {
 function loadProjects() {
     require '../config/miscellanea_db.php';
 
-    $projects = array();
+    // Fetch all projects
     $query = "SELECT id, title, place, date, description FROM projects ORDER BY date DESC, id DESC";
     $results = $OstMiscellaneaConn->query($query);
-
+    
+    $projects = [];
+    $ids = [];
     while ($row = $results->fetch_assoc()) {
         $id = $row['id'];
+        $ids[] = $id;
+        $projects[$id] = $row;
+        $projects[$id]['images'] = [];
+        $projects[$id]['team'] = [];
+        $projects[$id]['reviews'] = [];
+    }
 
-        $projects[$id] = [
-            'id' => $id,
-            'title' => $row['title'],
-            'place' => $row['place'],
-            'date' => $row['date'],
-            'description' => $row['description'],
-            'images' => array(),
-            'team' => array(),
-            'reviews' => array()
-        ];
+    if (!empty($ids)) {
+        $idList = implode(',', $ids);
 
-        // Fetch images
-        $query = "SELECT image_path, alt_text FROM project_images WHERE project_id = ? ORDER BY project_id ASC";
-        $stmt = $OstMiscellaneaConn->prepare($query);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $imagesResult = $stmt->get_result();
-        while ($imagesRow = $imagesResult->fetch_assoc()) {
-            $projects[$id]['images'][] = [
-                'image_path' => $imagesRow['image_path'],
-                'alt_text' => $imagesRow['alt_text']
-            ];
-        }
+        // Batch fetch images
+        $imgRes = $OstMiscellaneaConn->query("SELECT * FROM project_images WHERE project_id IN ($idList)");
+        while($img = $imgRes->fetch_assoc()) $projects[$img['project_id']]['images'][] = $img;
 
-        // Fetch team members
-        $query = "SELECT member_name, role FROM project_team_members WHERE project_id = ? ORDER BY project_id ASC";
-        $stmt = $OstMiscellaneaConn->prepare($query);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $teamResult = $stmt->get_result();
-        while ($teamRow = $teamResult->fetch_assoc()) {
-            $projects[$id]['team'][] = [
-                'member_name' => $teamRow['member_name'],
-                'role' => $teamRow['role']
-            ];
-        }
+        // Batch fetch team
+        $teamRes = $OstMiscellaneaConn->query("SELECT * FROM project_team_members WHERE project_id IN ($idList)");
+        while($m = $teamRes->fetch_assoc()) $projects[$m['project_id']]['team'][] = $m;
 
-        // Fetch reviews
-        $query = "SELECT review_text, rating FROM project_reviews WHERE project_id = ? ORDER BY project_id ASC";
-        $stmt = $OstMiscellaneaConn->prepare($query);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $reviewsResult = $stmt->get_result();
-        while ($reviewsRow = $reviewsResult->fetch_assoc()) {
-            $projects[$id]['reviews'][] = [
-                'review_text' => $reviewsRow['review_text'],
-                'rating' => $reviewsRow['rating']
-            ];
-        }
+        // Batch fetch reviews
+        $revRes = $OstMiscellaneaConn->query("SELECT * FROM project_reviews WHERE project_id IN ($idList)");
+        while($r = $revRes->fetch_assoc()) $projects[$r['project_id']]['reviews'][] = $r;
     }
 
     echo json_encode(['success' => true, 'projects' => array_values($projects)]);

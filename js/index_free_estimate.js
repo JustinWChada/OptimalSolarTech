@@ -35,7 +35,7 @@ $(function () {
             );
             if (modal) modal.hide();
             $alert.hide();
-          }, 1500);
+          }, 2500);
         } else {
           var msg = "Please correct the errors and try again.";
           if (resp && resp.errors && resp.errors.length) {
