@@ -15,7 +15,7 @@ try {
     // Query to find user by username
     $query = "SELECT user_id, username, email, password_hash, first_name, last_name, is_active, is_verified 
               FROM users 
-              WHERE (username = ? OR email = ?) AND is_active = TRUE";
+              WHERE (username = ? OR email = ?)"; //AND is_active = TRUE
     
     $stmt = $OstUsersConn->prepare($query);
     $stmt->bind_param("ss", $username,$username);

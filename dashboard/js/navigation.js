@@ -79,6 +79,10 @@ function getUrl(){
         return;
     }
 
+    if(url != "profile" && url != "account" && url != "settings"){
+        getCookieUserId();
+    }
+
     // logic to handle the URL
     const pagePath = getPagePath(url);
 
@@ -108,3 +112,26 @@ function logout() {
 }
 
 getUrl();
+
+function getCookieUserId(){
+  const cookieValues = document.cookie.split(';').reduce((obj, item) => {
+    const [key, value] = item.trim().split('=');
+    obj[key] = value;
+    return obj;
+  }, {});
+
+ id = cookieValues['user_id'];
+
+ $.ajax({
+  type: 'POST',
+  url: 'structure/query_dashboard.php',
+  data: {action: 'check_verification', user_id: id},
+  success: function(response){
+    if(!JSON.parse(response).message){
+      alert("Activate and Verify your account please ! Click Settings -> 'Get User Token' to get the user token to verify account");
+      window.location.href= "?profile";
+    }
+  }
+ })
+
+}

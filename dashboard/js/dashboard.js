@@ -84,6 +84,8 @@ function displayEmergenciesCount(emergencies){
   document.getElementById('emergencyMessages').innerHTML = "Emergencies (" + emergencies + ")";
 }
 
+
 checkCookie()
 
 returnEmergenciesCount();
+
