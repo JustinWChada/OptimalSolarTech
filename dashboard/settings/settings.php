@@ -47,9 +47,9 @@
                         <label for="user_email" class="form-label">User Email:</label>
                         <input type="email" class="form-control" id="user_email" name="token_user_email" placeholder="username@gmail.com" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" hidden disabled>
                         <label for="user_password" class="form-label">User Password:</label>
-                        <input type="password" class="form-control" id="user_password" name="token_user_password" placeholder="" required>
+                        <input type="password" class="form-control" id="user_password" name="token_user_password" placeholder="">
                     </div>
                 </div>
                 <div class="modal-footer">

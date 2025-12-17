@@ -102,7 +102,9 @@ function getTotalMetrics($sql,$conn){
                 <br>
                 <div class="card p-4">
                     <h5>Services Frequency</h5>
-                    <canvas id="frequentChartProjectServices" height="300"></canvas>
+                   <div class="chart-container" style="position: relative; height: 400px; width: 100%;">
+                        <canvas id="frequentChartProjectServices"></canvas>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">

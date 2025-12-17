@@ -22,6 +22,6 @@ fetch('structure/service_donut.php')
       options: { plugins: { legend: { position: "bottom" } } },
     });
   })
-  .catch(error => console.error("Error fetching data:", error));
+  .catch(error => console.error("Error fetching data:", error), xhr => console.error(xhr.responseText));
 
 

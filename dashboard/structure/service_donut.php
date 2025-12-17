@@ -1,28 +1,31 @@
 <?php
 require '../config/miscellanea_db.php';
 
-$sql = "SELECT s.service_id, s.service_title, COUNT(q.service) as quotes_count, COUNT(f.service) as free_estimate_count, COUNT(c.service) as contact_form_count
-FROM services s
-LEFT JOIN quotes q ON q.service = s.service_id
-LEFT JOIN free_estimate f ON f.service = s.service_id
-LEFT JOIN contact_form_inputs c ON c.service = s.service_id
-GROUP BY s.service_id, s.service_title
-ORDER BY quotes_count DESC, free_estimate_count DESC, contact_form_count DESC";
-
+$sql = "SELECT service_title FROM services";
 $result = $OstMiscellaneaConn->query($sql);
+
+$final_result = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        $service_title = htmlspecialchars($row['service_title']);
+        $sql = "SELECT COUNT(*) FROM quotes WHERE service='$service_title'";
+        $quotes_result = $OstMiscellaneaConn->query($sql);
+        $quotes_count = $quotes_result->fetch_assoc()['COUNT(*)'];
+
+        $sql = "SELECT COUNT(*) FROM free_estimate WHERE service='$service_title'";
+        $free_estimates_result = $OstMiscellaneaConn->query($sql);
+        $free_estimates_count = $free_estimates_result->fetch_assoc()['COUNT(*)'];
+
+        $sql = "SELECT COUNT(*) FROM contact_form_inputs WHERE service='$service_title'";
+        $contact_form_result = $OstMiscellaneaConn->query($sql);
+        $contact_form_count = $contact_form_result->fetch_assoc()['COUNT(*)'];
+
         $final_result[] = array(
-            'service_title' => htmlspecialchars($row['service_title']),
-            'service_count' => htmlspecialchars($row['quotes_count'] + $row['free_estimate_count'] + $row['contact_form_count'])
+            'service_title' => $service_title,
+            'service_count' => $quotes_count + $free_estimates_count + $contact_form_count
         );
     }
-} else {
-    $final_result[] = array(
-        'service_title' => '',
-        'service_count' => 0
-    );
 }
 
 echo json_encode($final_result);

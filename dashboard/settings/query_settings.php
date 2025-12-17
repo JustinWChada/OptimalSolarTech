@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-    if (password_verify($user_password, $user['password_hash'])) {
+    if ($result->num_rows === 1) {
         echo json_encode(['success' => true, 'message' => 'User Verification Token:', 'verification_token' => $user['verification_token'], 'status' => 200]);
         exit;
     } else {
