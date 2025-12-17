@@ -3,7 +3,7 @@
 window.addEventListener('load', () => {
     const projectListContainer = document.getElementById('project-list-container');
     if (projectListContainer) {
-            loadProjects();
+        loadProjects();
     }
 });
 

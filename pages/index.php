@@ -34,20 +34,43 @@
       <?php include("../includes/nav.php"); ?>
     </nav>
 
+    <div class="mobile-sticky-cta">
+        <a href="tel:+263777000000" class="btn btn-outline-success w-50"><i class="ri-phone-fill"></i> Call</a>
+        <button class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#quoteModal">Get Quote</button>
+    </div>
+
+    <a href="https://wa.me/263777000000" target="_blank" class="whatsapp-widget" title="Chat on WhatsApp">
+        <div class="whatsapp-pulse"></div>
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
     <section class="container-fluid main">
       <?php 
         include "index_hero.php"; 
         include "index_why_us.php";
         include "index_services.php";
+
+        echo '
+        <div class="container my-5 reveal">
+            <div class="bg-primary text-white p-5 rounded-4 text-center" style="background: linear-gradient(45deg, #0d9488, #115e59);">
+                <h2>Curious about Solar Savings?</h2>
+                <p>Find out how much you could save on your energy bill in seconds.</p>
+                <button class="btn btn-warning btn-lg fw-bold mt-2" data-bs-toggle="modal" data-bs-target="#solarCalcModal">
+                    <i class="ri-calculator-line"></i> Calculate My Savings
+                </button>
+            </div>
+        </div>';
+
         include "index_quotes.php"; 
         include "index_testimonials.php";     
         include "index_contact.php";
         include "../includes/nav_quote_modal.php";     
-        include "../includes/index_free_estimate_modal.php";     
+        include "../includes/index_free_estimate_modal.php"; 
+        include "../includes/solar_calculator_modal.php";    
         include "../includes/index_social_control.php";
         include "../includes/emergencies.php";
+        //include "../includes/lead_modal.php";
       ?>
-    </section>
 
     <footer>
       <?php include "../includes/footer.php"; ?>
@@ -63,7 +86,7 @@
       <script src="../js/index_social_control.js" type="text/javascript"></script>
       <script src="../js/contact.js" type="text/javascript"></script>
       <script src="../js/emergencies.js" type="text/javascript"></script>
-
+      <script src="../js/main_interactions.js"></script>
   </body>
 </html>
 

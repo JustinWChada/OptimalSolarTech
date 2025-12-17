@@ -55,8 +55,7 @@
       </button>
     </div>
 
-    <div class="why-us-image-col">
-      <img
+<div class="why-us-image-col reveal delay-200"> <img
         alt="About Us"
         class="why-us-team-image"
         src="../images/team_photo.jpeg"
@@ -64,11 +63,11 @@
       <div class="why-us-stats-box">
         <div class="stats-container">
           <div class="stat-item">
-            <div class="stat-number">1+</div>
+            <div class="stat-number" data-target="5" data-suffix="+">0+</div>
             <div class="stat-label">Years Experience</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">5+</div>
+            <div class="stat-number" data-target="500" data-suffix="+">0+</div>
             <div class="stat-label">Happy Customers</div>
           </div>
         </div>

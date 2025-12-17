@@ -15,7 +15,7 @@
                 <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
         </button>
-        <a class="icon-link" href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <a class="icon-link" href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" title="WhatsApp" disabled hidden>
             <button class="btn whatsapp" aria-label="WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </button>
