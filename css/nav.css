@@ -1,78 +1,67 @@
 .navbar {
-  z-index: 150;
+    z-index: 1050;
+    padding: 15px 0;
+    transition: var(--transition-smooth);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    position: sticky;
+    top: 0;
 }
 
-.header {
-  width: 100%;
-  background-color: var(--white);
-  /* Subtle shadow to lift the header, matching the image */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  z-index: 1000;
-  transition: ease 1s;
-  position: relative;
-}
-
-/* Content containers */
-.container {
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* 2. LOGO/BRANDING */
+/* Logo Styling */
 .b-text-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .b-logo {
-  /* Teal box for the icon */
-  width: 32px;
-  height: 32px;
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  /* Rounded corners */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.b-logo i {
-  color: var(--white);
-  font-size: 1.1rem;
-  /* Adjusting icon size */
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2);
 }
 
 .b-text {
-  /* "TechFlow Services" text */
-  color: var(--text-color);
-  font-size: 1.25rem;
-  font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--dark-text), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
 }
 
-/* 3. NAVIGATION LINKS */
-.nav-menu {
-  padding: 20px;
-}
-
+/* Nav Links */
 .nav-item a {
-  color: #179e8a;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  margin-left: 6px;
-  margin-right: 6px;
-  padding: 8px;
+    color: var(--gray-text) !important;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: var(--transition-fast);
 }
 
-.nav-item:hover,
-.nav-menu a[href="#services"] {
-  /* Highlight the 'Services' link like in the image */
-  color: var(--link-color);
+.nav-item a:hover, .nav-item a.active {
+    color: var(--primary-color) !important;
+    background: rgba(13, 148, 136, 0.05);
 }
 
-/* 4. CTA BUTTON */
+/* Mobile Toggle */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
 .getquote-btn {
   background-color: var(--primary-color);
   text-decoration: none;
@@ -94,24 +83,4 @@
 /* 5. MOBILE TOGGLE (Hidden on Desktop) */
 .nav-toggle {
   display: none;
-}
-
-/* Responsive Design: Hide full navigation and show toggle icon on smaller screens */
-@media (max-width: 1000px) {
-  .nav-menu {
-    padding: 10px;
-  }
-
-  .nav-item a {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: larger;
-    margin: 6px;
-    border-bottom: thin #179e8a;
-  }
-
-  .getquote-btn {
-    margin-top: 10px;
-  }
 }

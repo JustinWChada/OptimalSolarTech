@@ -1,26 +1,78 @@
-/* CSS Variables for easy color management */
+/* Modern Reset & Variables */
 :root {
-  --primary-color: #1fb8a1; /*#4058f5 Teal/Cyan color from the image: */
-  --text-color: #333333;
-  --link-color: #666666;
-  --white: #ffffff;
-  --header-height: 80px;
-  --teal-color: #1fb8a1; /* Primary brand color */
-  --dark-text: #333;
-  --light-text: #ffffff;
-  --gray-text: #cccccc;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --background-white: #fff;
-  --star-gold: #ffc107;
-  --medium-text: #555;
+    /* Brand Colors */
+    --primary-color: #0d9488; /* Deep Teal */
+    --primary-hover: #0f766e;
+    --accent-color: #f59e0b; /* Amber Gold for CTAs */
+    
+    /* Neutral Colors */
+    --dark-bg: #0f172a;
+    --dark-text: #1e293b;
+    --light-text: #f8fafc;
+    --gray-text: #64748b;
+    --body-bg: #f1f5f9;
+    --white: #ffffff;
 
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --footer-dark-bg: #1e3a45;
+    /* Glassmorphism & Cards */
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Spacing & Layout */
+    --header-height: 80px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #f4f4f4; /* Just for contrast */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Polish */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--body-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Global Utility Classes for Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modern Button Overrides */
+.btn-primary, .getquote-btn {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    padding: 12px 28px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    transition: var(--transition-smooth) !important;
+    box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.3);
 }
 
 .modal {

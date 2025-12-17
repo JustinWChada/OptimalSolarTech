@@ -42,7 +42,6 @@
 /*this is for the main page dashboard */
 
 .main-content {
-  margin-left: var(--sidebar-width);
   padding: 20px;
 }
 

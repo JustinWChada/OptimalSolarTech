@@ -1,43 +1,38 @@
 <div class="hero-container">
-    <h1 class="hero-title">
-        Professional <span class="blue-color">Technical Services</span><br />You Can Trust
-    </h1>
-    <p class="hero-services-text">
-        Expert air conditioning, solar installation, electrical wiring, and plumbing services for residential and commercial properties
-    </p>
-    <div class="hero-cta">
-        <button class="getquote-btn" id="openQuoteBtn" data-bs-toggle="modal" data-bs-target="#quoteModal">Get Free Quote</button>
-        <button class="">Call Now: Clansman Phone</button>
+    <div class="hero-content fade-in-up">
+        <span class="hero-badge">Trusted by 500+ Clients</span>
+        <h1 class="hero-title">
+            Professional <span class="highlight-text">Technical Services</span><br />
+            You Can Rely On
+        </h1>
+        <p class="hero-services-text">
+            Expert air conditioning, solar installation, and electrical solutions tailored for modern residential and commercial properties.
+        </p>
+        <div class="hero-cta-group">
+            <button class="getquote-btn btn-lg" id="openQuoteBtn" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                Get Free Quote <i class="ri-arrow-right-line ms-2"></i>
+            </button>
+            <a href="tel:+263777000000" class="btn btn-outline-light btn-lg glass-btn">
+                <i class="ri-phone-fill me-2"></i> Call Us Now
+            </a>
+        </div>
     </div>
     
-    <!-- The perk cards are positioned absolutely to float over the content below the hero area -->
     <div class="hero-perks">
         <div class="hero-perks-card">
-            <div class="hero-perks-icon">
-                <i class="ri-time-line text-light"></i>
-            </div>
-            <h3 class="hero-perks-title">24/7 Emergency Service</h3>
-            <p class="hero-perks-text">
-                Available round the clock for urgent repairs and installations
-            </p>
+            <div class="icon-circle"><i class="ri-time-line"></i></div>
+            <h3>24/7 Emergency</h3>
+            <p>Rapid response team available round the clock.</p>
         </div>
         <div class="hero-perks-card">
-            <div class="hero-perks-icon" >
-                <i class="ri-shield-check-line text-light"></i>
-            </div>
-            <h3 class="hero-perks-title">Licensed & Insured</h3>
-            <p class="hero-perks-text">
-                Fully certified technicians with comprehensive insurance coverage
-            </p>
+            <div class="icon-circle"><i class="ri-shield-check-line"></i></div>
+            <h3>Licensed & Insured</h3>
+            <p>100% Certified technicians for your peace of mind.</p>
         </div>
         <div class="hero-perks-card">
-            <div class="hero-perks-icon">
-                <i class="ri-award-line text-light"></i>
-            </div>
-            <h3 class="hero-perks-title">Quality Guarantee</h3>
-            <p class="hero-perks-text">
-                100% satisfaction guarantee on all our services and installations
-            </p>
+            <div class="icon-circle"><i class="ri-award-line"></i></div>
+            <h3>Quality Guarantee</h3>
+            <p>We don't leave until you are completely satisfied.</p>
         </div>
     </div>
 </div>

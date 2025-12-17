@@ -1,8 +1,4 @@
-$(document).ready(function () {
-
-  // setInterval(function () {
-  //   $("#emergencyMessages").toggleClass("active");
-  // }, 2000);
+//$(document).ready(function () {
 
   $("#sidebarToggle").click(function () {
     $(".sidebar").toggleClass("open");
@@ -14,7 +10,7 @@ $(document).ready(function () {
     }
   });
 
-});
+//});
 
 function checkCookie() {
   let user_id = returnCookieValue('user_id')

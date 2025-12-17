@@ -2,8 +2,6 @@
     require "../config/users_db.php";
 ?>
 
-<link rel="stylesheet" href="css/projects.css" type="text/css">
-
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="?add_user"><i class="bi bi-box-seam-fill"></i> Users Portfolio</a>

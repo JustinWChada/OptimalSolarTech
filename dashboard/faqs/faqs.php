@@ -64,9 +64,9 @@ if ($result->num_rows > 0) {
         $answer = $row["answer"];
 
         // Display the FAQ as a card
-        echo '<div class="faq-card bg-success border border-success rounded-lg p-4">';
-        echo '<h3 class="text-white">' . $question . '</h3>';
-        echo '<p class="text-white">' . $answer . '</p>';
+        echo '<div class="faq-card border-success rounded-lg p-4">';
+        echo '<h3 class="">' . $question . '</h3>';
+        echo '<p class="">' . $answer . '</p>';
         echo '<a href="faqs/query_faqs.php?action=delete&faqId=' . $faq_id . '" class="delete-btn btn btn-danger btn-sm" data-faq-id="' . $faq_id . '">Delete</a>';
         echo '</div>';
     }

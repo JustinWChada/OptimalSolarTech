@@ -1,6 +1,6 @@
 /* --- Footer Section Styles --- */
 .footer-section {
-  background-color: var(--footer-dark-bg);
+  background-color: #1e3a45;
   color: var(--light-text);
   padding: 60px 20px 0 20px; /* 60px top padding, 0 bottom padding (handled by bar) */
   font-family: "Inter", sans-serif;
