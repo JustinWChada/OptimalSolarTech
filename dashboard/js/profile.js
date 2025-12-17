@@ -93,8 +93,8 @@ function toggleAccountState() {
         success: function(response) {
             const data = JSON.parse(response);
             if (data.success) {
-                //alert('Account state updated successfully.'); //uncomment if you want an alert
-                loadProfile(); // Reload profile to reflect changes
+                
+                loadProfile();
             } else {
                 alert('Error: ' + (data.message || 'Could not update account state.'));
             }
@@ -103,7 +103,6 @@ function toggleAccountState() {
             console.error('Error toggling account state:', status, error);
             alert('A network error occurred.'); 
             console.log(xhr.responseText);
-            console.log(error);
         }
     });
 
@@ -129,7 +128,7 @@ function toggleAccountVerification(token) {
             const data = JSON.parse(response);
             if (data.success) {
                 $("#verificationTokenModal").modal('hide');
-                loadProfile(); // Reload profile to reflect changes
+                loadProfile();
             } else {
                 alert('Error: ' + (data.message || 'Could not update account verification.'));
             }
